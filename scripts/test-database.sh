@@ -36,3 +36,8 @@ for file in supabase/tests/leadership.sql supabase/migrations/202611150003_leade
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Leadership migration preserves existing cards, portrait, visibility and archived content; reruns do not duplicate cards or audit events.'
+
+for file in supabase/tests/services-overview.sql supabase/migrations/202611150004_retire_services_overview_cards.sql supabase/migrations/202611150004_retire_services_overview_cards.sql supabase/tests/verify-services-overview.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Services overview retirement preserves content/history and is idempotent.'
