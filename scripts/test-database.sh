@@ -56,3 +56,8 @@ for file in supabase/tests/industries-overview.sql supabase/migrations/202611150
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Industries overview retirement preserves content/history and is idempotent.'
+
+for file in supabase/tests/tracking-services.sql supabase/migrations/202611150007_retire_tracking_services.sql supabase/migrations/202611150007_retire_tracking_services.sql supabase/tests/verify-tracking-services.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Tracking services retirement preserves content/history and is idempotent.'

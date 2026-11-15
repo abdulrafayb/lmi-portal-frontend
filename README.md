@@ -12,7 +12,7 @@ The portal displays one field even for legacy heading arrays during rollout; the
 
 1. Create a Supabase project in your organization. Choose a nearby region, set a strong database password, and save it privately. The database password is **not** the portal login password and never belongs in a frontend environment variable.
 2. In **SQL Editor**, create a new query, paste all of [`supabase/migrations/202611110001_cms.sql`](supabase/migrations/202611110001_cms.sql), and run it **once**. It creates the tables, row-level security and API functions. Keep RLS enabled. This migration is a first-time migration, not a script to rerun on an initialized project.
-3. Create another query, paste [`supabase/seed.sql`](supabase/seed.sql), and run it. It seeds the website's 25 pages / 177 active sections (existing projects retain retired records). It is safe to rerun: it does not replace published content. `npm run seed:sql` regenerates it from `supabase/catalog.json` when the developer updates the layout contract.
+3. Create another query, paste [`supabase/seed.sql`](supabase/seed.sql), and run it. It seeds the website's 25 pages / 176 active sections (existing projects retain retired records). It is safe to rerun: it does not replace published content. `npm run seed:sql` regenerates it from `supabase/catalog.json` when the developer updates the layout contract.
 4. In **Authentication → Users**, add/create your administrator using their email and a strong password. Confirm the email when creating it, if the dashboard offers that option. Do not use Invite unless you have separately configured an invitation flow. Copy this user's **UUID**.
 5. In SQL Editor, designate that one account:
    ```sql
@@ -89,7 +89,7 @@ The portal does not claim to monitor Netlify completion; use Netlify Deploys to 
 
 Existing projects: run only [`supabase/migrations/202611150002_home_images_and_related_layouts.sql`](supabase/migrations/202611150002_home_images_and_related_layouts.sql) in a new Supabase SQL Editor query. It sets the uploaded Home image paths, adds the hero image fields to the portal template, and retires the Related Services/Related Pages block on eight service pages and three Fleet & Visibility pages. No sections/history are deleted. Existing text and visibility are preserved; changed records receive a revision and System history entry. Refresh the portal and rebuild the website afterward. Do not rerun the original table-creation migration.
 
-The eight `public/home/section-2-image-*.png` files correspond to Home's service cards (Section Four in code). Industry images are supplied for slots 1, 2, 4 and 5. There is no `section-8-image-3.png` for Manufacturing; that slot retains its existing image or placeholder. All image paths remain editable through the portal. Fresh projects use the updated seed/catalog (177 active sections). Old databases can still contain 190 physical section records; the 11 retired records are filtered out of CMS/public APIs and cannot be republished through the portal.
+The eight `public/home/section-2-image-*.png` files correspond to Home's service cards (Section Four in code). Industry images are supplied for slots 1, 2, 4 and 5. There is no `section-8-image-3.png` for Manufacturing; that slot retains its existing image or placeholder. All image paths remain editable through the portal. Fresh projects use the updated seed/catalog (176 active sections). Old databases can still contain 190 physical section records; the 11 retired records are filtered out of CMS/public APIs and cannot be republished through the portal.
 
 ## Six-card leadership layout
 
@@ -106,3 +106,7 @@ Run the portal migration `supabase/migrations/202611150005_services_overview_faq
 ## Industries overview section four retired
 
 For existing projects, run the portal migration `supabase/migrations/202611150006_retire_industries_overview_cards.sql`, refresh the portal and rebuild the website. The cargo-to-service card section is removed from the layout and CMS editor; its stored content/history is preserved. The following comparison section uses a white background.
+
+## Shipment Tracking Where It Applies retired
+
+Existing projects: run the portal migration `supabase/migrations/202611150007_retire_tracking_services.sql`, then rebuild the website and refresh the portal. The Where It Applies service-link section is retired from the layout/editor while stored data and history are preserved.
