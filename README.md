@@ -21,8 +21,8 @@ The existing portal UI now uses Supabase Auth, PostgreSQL and RPC APIs directly.
    VITE_SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLIC_PUBLISHABLE_KEY
    VITE_WEBSITE_URL=https://YOUR_WEBSITE.netlify.app
    ```
-8. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` with the same values to the **website's** Netlify site. Remove the obsolete `VITE_API_URL` and `VITE_CMS_API_URL` variables. Build both projects with `npm run build`, publishing `dist`, and redeploy both sites.
-9. Open the portal, sign in with the admin **email/password**, edit a section and Publish. Confirm the change and History. The website refreshes content when opened/focused or within its 60-second refresh interval. Also test hide/show. API outages use the website's bundled JSON, as requested.
+8. The **website** now needs build-time `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY` and `SITE_URL` variables instead of Vite Supabase variables. The portal keeps the Vite variables above. Remove obsolete `VITE_API_URL` / `VITE_CMS_API_URL` variables. Both projects build with `npm run build` and publish `dist`. The website build requires live Supabase content and fails rather than falling back.
+9. Configure the website rebuild trigger below, then sign in with the admin **email/password**, edit a section and Publish. Confirm the change and History. The website changes only after a successful static rebuild/deployment. There is no browser content fetching or JSON fallback anymore.
 
 No custom backend URL or CORS-origin environment variable is needed. The RPC endpoints are served by Supabase. For this password-only flow there are no auth callback pages; set your production portal URL under Authentication URL Configuration for future dashboard/password-reset email configuration. Password resets can be managed in the Supabase dashboard; no reset UI is included in the portal.
 
@@ -36,7 +36,7 @@ Login sessions are managed/refreshed by the Supabase SDK and stored in sessionSt
 
 Images remain website files, edited as paths such as `/photo.webp`. Deploy the image in the website's `public/` folder first. The portal previews paths against `VITE_WEBSITE_URL`. `/public/photo.webp` is normalized to `/photo.webp` by the database function. No upload service is involved.
 
-The website's `CMS.md` describes fallback/loading rules. A successful response respects missing/hidden sections. API outages use the original bundled JSON, even when that temporarily brings back a section hidden in the database.
+The website's `CMS.md` describes static generation. It fetches content at build time, emits HTML for each route, and never calls the content API in the browser. Hidden sections remain hidden in the generated site. An API failure fails the build and leaves the current deployment live; no bundled JSON fallback is used.
 
 ## Access model and APIs
 
@@ -47,10 +47,34 @@ The website's `CMS.md` describes fallback/loading rules. A successful response r
 
 ## Tests
 
-`npm run test:db` needs Docker. It creates and removes a disposable PostgreSQL 16 container and tests the migration, seeding, permissions/RLS, single-admin rule, publishing/history consistency, URL validation, missing headings and revision conflicts. `supabase/tests/auth-shim.sql` is a test-only stand-in for Supabase Auth: **never run it in your Supabase project**. Browser checks were also run for login, section publishing/hiding, history, logout, website fallback and partial-content rendering.
+`npm run test:db` needs Docker. It creates and removes a disposable PostgreSQL 16 container and tests the migration, seeding, permissions/RLS, single-admin rule, publishing/history consistency, URL validation, missing headings and revision conflicts. `supabase/tests/auth-shim.sql` is a test-only stand-in for Supabase Auth: **never run it in your Supabase project**. Browser checks cover portal publishing, rebuild requests/retries, and the website’s static HTML, hydration and build-failure behavior.
 
 ## Moving accounts later
 
-Transferring the existing project to the new owner's organization is usually simpler than copying data; check Supabase's current transfer eligibility. If creating a new project instead, apply the migration there and migrate the **current** `cms_pages`, `cms_sections` and `cms_history` data with a database backup/export. Do not rely on `seed.sql` to move edits: it contains the original website content only. Create the admin in the new project's Auth and set its new UUID in `cms_admin`. Do not copy an old admin UUID blindly. Historical actor UUIDs remain as audit values and do not block migration. Update both Netlify sites' URL/public key and redeploy; users sign in again.
+Transferring the existing project to the new owner's organization is usually simpler than copying data; check Supabase's current transfer eligibility. If creating a new project instead, apply the migration there and migrate the **current** `cms_pages`, `cms_sections` and `cms_history` data with a database backup/export. Do not rely on `seed.sql` to move edits: it contains the original website content only. Create the admin in the new project's Auth and set its new UUID in `cms_admin`. Do not copy an old admin UUID blindly. Historical actor UUIDs remain as audit values and do not block migration. Update both sites' Supabase settings, redeploy the Edge Function and its secrets in the new project, and rebuild both sites; users sign in again.
 
 The old `lmi-portal-backend` repository is no longer referenced. It can be archived or deleted after you are satisfied with this setup; no local backend work was deleted automatically.
+
+## Netlify website rebuild trigger (required for Publish → live website)
+
+Publishing content and deploying the static website are separate steps. Supabase commits the section/history first. The portal then calls an authenticated Edge Function to request a Netlify rebuild. If the trigger fails, content stays saved and the portal offers **Retry website build**. A separate toolbar **Request website rebuild** button can request a build after a browser reload or a manually fixed build. Neither action duplicates the publication/history event. Only a completed, successful Netlify deployment makes changes live; queued/accepted does not mean deployed.
+
+1. In the **website's** Netlify site, create a build hook for the production `main` branch (Build & deploy → Build hooks). Treat the entire hook URL as private. Do not put it in either React project's environment variables or source files.
+2. Deploy `supabase/functions/request-website-build` in the same Supabase project. With the Supabase CLI authenticated and linked:
+   ```bash
+   supabase link --project-ref YOUR_PROJECT_REF
+   supabase secrets set --env-file .env.edge.local
+   supabase functions deploy request-website-build --no-verify-jwt
+   ```
+   Create ignored `.env.edge.local` with:
+   ```text
+   WEBSITE_BUILD_HOOK_URL=https://api.netlify.com/build_hooks/YOUR_PRIVATE_HOOK
+   PORTAL_ORIGIN=https://YOUR_PORTAL.netlify.app
+   ```
+   Do not add a trailing slash to `PORTAL_ORIGIN`. The function uses Supabase-provided `SUPABASE_URL` and `SUPABASE_ANON_KEY` automatically. If legacy API keys are disabled, also set `CMS_PUBLISHABLE_KEY` to your project’s publishable key as a function secret.
+3. The function's gateway JWT check is intentionally disabled for Supabase signing-key compatibility. **It still validates the user token through Supabase Auth and checks `cms_admin_me()` before calling Netlify.** Non-admin and anonymous requests are rejected. CORS only allows the configured portal origin; authorization is enforced independently of CORS. Never replace this with an unauthenticated proxy to the build hook.
+4. Deploy the updated portal. Publish a small change and check Netlify Deploys. If Supabase content is missing or unavailable, the build must fail and the existing website remains live. Fix the data/configuration and use **Retry website build** or **Request website rebuild**.
+
+The portal does not claim to monitor Netlify completion; use Netlify Deploys to see whether the requested build succeeded. Direct SQL edits do not automatically request a build; use the rebuild toolbar or Netlify for those. If the browser closes after saving but before requesting a build, use the toolbar on returning. Multiple publications may queue multiple builds; no timer-based debounce is used that could lose a later edit. When moving hosting later, replace this Netlify-specific trigger with that host's CI/deploy mechanism. The website itself stays static React output.
+
+`npm test` checks build-trigger authentication/allowlisting and secret-safe failure handling. `npm run test:db` continues to test the database publishing/security contract.

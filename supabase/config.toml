@@ -1,0 +1,2 @@
+[functions.request-website-build]
+verify_jwt = false

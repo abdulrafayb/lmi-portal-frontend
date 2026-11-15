@@ -410,3 +410,14 @@ pre {
     flex-wrap: wrap;
   }
 }
+.build-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 20px 0;
+}
+.build-controls button {
+  flex-shrink: 0;
+}

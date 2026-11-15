@@ -17,6 +17,7 @@ import {
   getPage,
   publishSection,
   getHistory,
+  requestWebsiteBuild,
 } from "./api";
 import Fields, { label } from "./Fields";
 import "./styles.css";
@@ -113,7 +114,7 @@ function SectionEditor({
       publishSection(pageId, sectionKey, data, enabled, revision),
     onSuccess: async (result) => {
       setRevision(result.revision);
-      onPublished("Section published successfully.");
+      onPublished(result);
       setPublished(
         result.unchanged
           ? "No changes to publish."
@@ -308,6 +309,26 @@ function Dashboard() {
   const [sectionKey, setSectionKey] = useState("");
   const [dirty, setDirty] = useState(false);
   const [notice, setNotice] = useState("");
+  const [buildFailed, setBuildFailed] = useState(false);
+  const retryBuild = useMutation({
+    mutationFn: requestWebsiteBuild,
+    onSuccess: () => {
+      setBuildFailed(false);
+      setNotice(
+        "Website rebuild requested. Changes go live after a successful deployment.",
+      );
+    },
+    onError: (error) => {
+      setBuildFailed(true);
+      setNotice(error.message);
+    },
+  });
+  function reportPublication(result) {
+    setNotice(
+      result.unchanged ? "No changes to publish." : result.deployment.message,
+    );
+    setBuildFailed(result.deployment?.requested === false);
+  }
   const me = useQuery({
     queryKey: ["me"],
     queryFn: () => getAdmin(),
@@ -398,10 +419,27 @@ function Dashboard() {
           <>
             <h1>Website content</h1>
             {notice && (
-              <p className="success" role="status">
-                {notice}
-              </p>
+              <div className={buildFailed ? "error" : "success"} role="status">
+                <p>{notice}</p>
+              </div>
             )}
+            <div className="build-controls">
+              <span className="hint">
+                Published changes appear after a successful website deployment.
+              </span>
+              <button
+                type="button"
+                className="secondary"
+                onClick={() => retryBuild.mutate()}
+                disabled={retryBuild.isPending}
+              >
+                {retryBuild.isPending
+                  ? "Requesting build…"
+                  : buildFailed
+                    ? "Retry website build"
+                    : "Request website rebuild"}
+              </button>
+            </div>
             <p>
               Edit existing content or hide a section. Publish applies to the
               selected section only.
@@ -467,7 +505,7 @@ function Dashboard() {
                 }
                 template={page.data.template[key]}
                 onDirty={setDirty}
-                onPublished={setNotice}
+                onPublished={reportPublication}
               />
             ) : null}
           </>

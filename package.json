@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0 --port 4174",
     "seed:sql": "node scripts/generate-seed.mjs",
-    "test:db": "bash scripts/test-database.sh"
+    "test:db": "bash scripts/test-database.sh",
+    "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.119.0",

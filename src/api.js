@@ -52,13 +52,43 @@ export const getAdmin = () => rpc("cms_admin_me");
 export const getPages = (signal) => rpc("cms_admin_pages", {}, signal);
 export const getPage = (id, signal) =>
   rpc("cms_admin_page", { p_page_id: id }, signal);
-export const publishSection = (id, key, data, enabled, revision) =>
-  rpc("cms_publish_section", {
+export async function requestWebsiteBuild() {
+  const { data, error } = await configured().functions.invoke(
+    "request-website-build",
+    { body: {} },
+  );
+  if (error)
+    throw new Error(
+      "Content is saved, but the website rebuild could not be requested. Check the Edge Function configuration and retry.",
+    );
+  return data;
+}
+export async function publishSection(id, key, data, enabled, revision) {
+  const result = await rpc("cms_publish_section", {
     p_page_id: id,
     p_key: key,
     p_data: data,
     p_enabled: enabled,
     p_expected_revision: revision,
   });
+  if (result.unchanged) return result;
+  try {
+    await requestWebsiteBuild();
+    return {
+      ...result,
+      deployment: {
+        requested: true,
+        message:
+          "Content published. Website rebuild requested; changes go live after a successful deployment.",
+      },
+    };
+  } catch (error) {
+    // Publishing has committed: never claim it failed or publish it twice.
+    return {
+      ...result,
+      deployment: { requested: false, message: error.message },
+    };
+  }
+}
 export const getHistory = (page, id, signal) =>
   rpc("cms_admin_history", { p_page: page, p_page_id: id || null }, signal);
