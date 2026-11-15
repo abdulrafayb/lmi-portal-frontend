@@ -114,3 +114,7 @@ Existing projects: run the portal migration `supabase/migrations/202611150007_re
 ## Three HSSE awards
 
 Existing projects must run the portal migration `supabase/migrations/202611160001_hsse_three_awards.sql` before rebuilding the website. It removes the fourth Shell award and its image slot while retaining current edits to the other three awards and the policy content. The migration records the change in history and is safe to rerun. Refresh the portal afterward.
+
+## Website quote email
+
+The contact form now submits through Supabase and Resend, with Turnstile protection and private submission quotas. Follow [the step-by-step email setup](supabase/QUOTE_EMAIL_SETUP.md) to verify the sending domain, run the migration, configure secrets, deploy `send-quote`, and set the website's two public variables. No new portal frontend keys are required. The function is deployed separately from Netlify.

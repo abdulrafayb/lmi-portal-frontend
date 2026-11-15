@@ -66,3 +66,12 @@ for file in supabase/tests/hsse-awards.sql supabase/migrations/202611160001_hsse
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'HSSE three-award migration preserves edits/visibility and audits only once.'
+
+# Simulate the pre-email default note; migration updates it only once.
+docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 <<'SQL'
+update public.cms_sections set data=jsonb_set(data,'{note}','"This form prepares an email draft. Send it from your email app to submit your request; our team will then review it and contact you using the details provided."') where page_id='contact-us' and key='sectionTwo';
+SQL
+for file in supabase/migrations/202611160002_quote_email.sql supabase/migrations/202611160002_quote_email.sql supabase/tests/quote-email.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Private quote quotas enforce IP and UTC daily limits, reset correctly, and deny public access.'

@@ -1470,7 +1470,7 @@
           "Heavy & Project Cargo"
         ],
         "submitLabel": "Request a Quote",
-        "note": "This form prepares an email draft. Send it from your email app to submit your request; our team will then review it and contact you using the details provided.",
+        "note": "Submit your requirement directly to LMI. Our team will review it and contact you using the details provided.",
         "validation": {
           "required": "Please complete this field.",
           "email": "Please enter a valid email address.",
