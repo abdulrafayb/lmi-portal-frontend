@@ -7,7 +7,7 @@
       "sectionOne": {
         "eyebrow": "From the road",
         "heading": "Insights & Case Studies on Road Transportation in Pakistan",
-        "description": "Real movements and practical guidance from LMI’s decades of road transportation in Pakistan.",
+        "description": "Real movements and practical guidance from LMI\u2019s decades of road transportation in Pakistan.",
         "action": {
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
@@ -22,7 +22,7 @@
         "cards": [
           {
             "eyebrow": "Case study 01",
-            "heading": "Fertilizer lifted from Karachi’s ports",
+            "heading": "Fertilizer lifted from Karachi\u2019s ports",
             "industry": "Industry: Chemicals & Fertilizer",
             "service": "Service: Road Freight",
             "description": "Urea moved from seaports to destinations across Pakistan for a major fertilizer producer.",
@@ -60,7 +60,7 @@
       },
       "sectionThree": {
         "eyebrow": "From our leadership",
-        "quote": "“Our customers trust us with cargo that cannot afford to be late or unsafe. That is why every journey starts with the right vehicle, a trained driver and safety as a first priority. It is how we have built long relationships, and how we intend to keep them.”",
+        "quote": "\u201cOur customers trust us with cargo that cannot afford to be late or unsafe. That is why every journey starts with the right vehicle, a trained driver and safety as a first priority. It is how we have built long relationships, and how we intend to keep them.\u201d",
         "name": "Brig. (R) Shahid Mahmood",
         "role": "CEO, Logistics Management International",
         "image": null,
@@ -107,7 +107,7 @@
           },
           {
             "eyebrow": "Industry",
-            "heading": "[Suggested article: Moving fertilizer from Karachi’s ports: what shippers should know]",
+            "heading": "[Suggested article: Moving fertilizer from Karachi\u2019s ports: what shippers should know]",
             "description": "[Article to be written by LMI]"
           }
         ]
@@ -175,7 +175,7 @@
       "sectionSeven": {
         "heading": "Want to Know More About LMI?",
         "description": "Read our company profile to see our history, services, fleet and the industries we serve, and share it with your team.",
-        "metadata": "[LMI-Company-Profile.pdf · file size · year/version]",
+        "metadata": "[LMI-Company-Profile.pdf \u00b7 file size \u00b7 year/version]",
         "badge": "PDF",
         "action": {
           "label": "Download Company Profile",
@@ -246,7 +246,7 @@
           "Journey discipline and responsible speed",
           "Cargo responsibility: knowing what the vehicle carries"
         ],
-        "panelHeading": "A driver’s journey",
+        "panelHeading": "A driver\u2019s journey",
         "steps": [
           {
             "heading": "Before dispatch",
@@ -321,7 +321,7 @@
           },
           {
             "heading": "Delivery & decanting",
-            "description": "Controlled unloading to the site’s requirements."
+            "description": "Controlled unloading to the site\u2019s requirements."
           },
           {
             "heading": "Reporting",
@@ -374,7 +374,7 @@
         "policy": {
           "heading": "Download Our HSSE Policy",
           "description": "Read the policy that guides how we run drivers, vehicles, cargo and operations.",
-          "metadata": "[LMI-HSSE-Policy.pdf · file size · year/version]",
+          "metadata": "[LMI-HSSE-Policy.pdf \u00b7 file size \u00b7 year/version]",
           "label": "Download PDF",
           "path": null,
           "badge": "PDF"
@@ -389,7 +389,7 @@
         "heading": "HSSE Questions",
         "items": [
           {
-            "question": "What is LMI’s HSE policy?",
+            "question": "What is LMI\u2019s HSE policy?",
             "answer": "A strict policy covering trained drivers, vehicle inspection and pre-trip checks, protective equipment, emergency response procedures and incident reporting."
           },
           {
@@ -460,7 +460,7 @@
       },
       "sectionTwo": {
         "eyebrow": "How LMI does it",
-        "heading": "LMI’s Shipment Visibility",
+        "heading": "LMI\u2019s Shipment Visibility",
         "description": "Visibility is part of how we run every movement. This is what it looks like.",
         "cards": [
           {
@@ -509,7 +509,7 @@
           },
           {
             "label": "Route",
-            "value": "[Origin] → [Destination]"
+            "value": "[Origin] \u2192 [Destination]"
           },
           {
             "label": "Last update",
@@ -619,7 +619,7 @@
       "sectionOne": {
         "eyebrow": "Coverage",
         "heading": "Nationwide Road Transportation From Karachi",
-        "description": "LMI moves cargo from Karachi’s ports, plants and terminals to destinations across Pakistan, with a suitable vehicle ready exactly when required.",
+        "description": "LMI moves cargo from Karachi\u2019s ports, plants and terminals to destinations across Pakistan, with a suitable vehicle ready exactly when required.",
         "action": {
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
@@ -704,7 +704,7 @@
         "routesHeading": "Routes we run regularly",
         "routes": [
           {
-            "heading": "[Route 1: Karachi → destination]",
+            "heading": "[Route 1: Karachi \u2192 destination]",
             "details": [
               "Cargo: [what we move on this route]",
               "Frequency: [e.g. weekly, daily, as required]",
@@ -712,7 +712,7 @@
             ]
           },
           {
-            "heading": "[Route 2: Karachi → destination]",
+            "heading": "[Route 2: Karachi \u2192 destination]",
             "details": [
               "Cargo: [what we move on this route]",
               "Frequency: [e.g. weekly, daily, as required]",
@@ -720,7 +720,7 @@
             ]
           },
           {
-            "heading": "[Route 3: Karachi → destination]",
+            "heading": "[Route 3: Karachi \u2192 destination]",
             "details": [
               "Cargo: [what we move on this route]",
               "Frequency: [e.g. weekly, daily, as required]",
@@ -736,7 +736,7 @@
         "locations": [
           {
             "heading": "Ports & Terminals",
-            "description": "Cargo lifted from Karachi’s ports and terminals.",
+            "description": "Cargo lifted from Karachi\u2019s ports and terminals.",
             "image": null,
             "imageAlt": "Ports & Terminals",
             "imagePlaceholder": "[Photo: Ports & Terminals]"
@@ -784,7 +784,7 @@
             "description": "Shell Pakistan cartage contractor, certified 2002"
           },
           {
-            "heading": "Karachi → Jhelum & Kuzdar",
+            "heading": "Karachi \u2192 Jhelum & Kuzdar",
             "description": "Bitumen from National Refinery, 1992"
           }
         ],
@@ -871,7 +871,7 @@
       },
       "sectionTwo": {
         "eyebrow": "How LMI does it",
-        "heading": "LMI’s Assured Fleet Network",
+        "heading": "LMI\u2019s Assured Fleet Network",
         "description": "Fleet availability is where reliable transportation starts. This is how we run it.",
         "cards": [
           {
@@ -1650,7 +1650,7 @@
         "eyebrow": "Who we are",
         "heading": "A Legacy That Began With One Truck",
         "paragraphs": [
-          "Our legacy traces back to 1954 and the vision of Mr. Abdul Rahim, who started with a single truck and went on to establish Taj Transport Company. That modest beginning grew into Mehran Tankers, a name synonymous with reliability in Pakistan’s transport industry.",
+          "Our legacy traces back to 1954 and the vision of Mr. Abdul Rahim, who started with a single truck and went on to establish Taj Transport Company. That modest beginning grew into Mehran Tankers, a name synonymous with reliability in Pakistan\u2019s transport industry.",
           "Building on this foundation, Mr. Abdul Wahab established Logistics Management International (LMI) in July 2005, structuring the company around fresh thinking, innovative ideas and modern logistics techniques."
         ],
         "milestones": [
@@ -1686,8 +1686,8 @@
           {
             "icon": "vision",
             "eyebrow": "Our vision",
-            "heading": "Pakistan’s Most Professional 3PL",
-            "description": "To be Pakistan’s most professional 3PL organization, built on core values, professional excellence and continuous growth. We strive to deliver superior logistics services and innovative solutions that create lasting value for our clients."
+            "heading": "Pakistan\u2019s Most Professional 3PL",
+            "description": "To be Pakistan\u2019s most professional 3PL organization, built on core values, professional excellence and continuous growth. We strive to deliver superior logistics services and innovative solutions that create lasting value for our clients."
           },
           {
             "icon": "mission",
@@ -1825,7 +1825,7 @@
       },
       "sectionSeven": {
         "heading": "Need a Reliable Transportation Partner?",
-        "description": "Let’s move your business forward, together.",
+        "description": "Let\u2019s move your business forward, together.",
         "action": {
           "label": "Contact Us Today",
           "path": "/contact-us"
@@ -1877,25 +1877,16 @@
           }
         ]
       },
-      "sectionThree": {
-        "eyebrow": "Executive leadership",
-        "name": "Brig. (R) Shahid Mahmood",
-        "role": "Chief Executive Officer",
-        "bio": "[Short bio to be written by LMI: background, experience in leadership and operations, and focus for the company.]",
-        "focusAreas": [
-          "Business direction: sets strategy aligned with market needs",
-          "Operational oversight: safety, reliability and efficiency",
-          "Customer confidence: long-term relationships through consistent delivery",
-          "Organizational performance: financial discipline and people development"
-        ],
-        "image": null,
-        "imageAlt": "Brig. (R) Shahid Mahmood",
-        "imagePlaceholder": "[Portrait: Brig. (R) Shahid Mahmood]"
-      },
       "sectionFour": {
         "eyebrow": "Our team",
         "heading": "Meet the People Behind Every Movement",
         "members": [
+          {
+            "name": "Brig. (R) Shahid Mahmood",
+            "initials": "SM",
+            "role": "Chief Executive Officer",
+            "image": null
+          },
           {
             "name": "Insaf Ahmed",
             "initials": "IA",
@@ -2102,7 +2093,7 @@
           "description": "Read the policy behind how we run drivers, vehicles, cargo and operations.",
           "coverBrand": "LMI",
           "coverTitle": "HSSE Policy",
-          "fileNote": "LMI-HSSE-Policy.pdf · Placeholder link",
+          "fileNote": "LMI-HSSE-Policy.pdf \u00b7 Placeholder link",
           "action": {
             "label": "Download PDF",
             "href": "#hsse-policy-pdf",
@@ -2467,7 +2458,7 @@
         "heading": "Care Begins Before the Carrier Moves",
         "paragraphs": [
           "Moving vehicles is about more than getting them from A to B. The number of vehicles, their type, the pickup location and the receiving site all affect how a carrier should be configured and loaded, so we plan these details before the vehicle arrives.",
-          "Vehicles are positioned and secured according to the carrier’s configuration, then unloaded in a controlled manner at the destination. An assured fleet network of verified trucks and drivers is ready exactly when required, which keeps dealer, fleet and corporate schedules on time.",
+          "Vehicles are positioned and secured according to the carrier\u2019s configuration, then unloaded in a controlled manner at the destination. An assured fleet network of verified trucks and drivers is ready exactly when required, which keeps dealer, fleet and corporate schedules on time.",
           "Our drivers follow our HSE protocols, including pre-trip inspection of the carrier before every dispatch."
         ],
         "action": {
@@ -2554,7 +2545,7 @@
       "sectionFive": {
         "eyebrow": "Trusted by",
         "heading": "Automotive and Corporate Clients",
-        "description": "With decades of experience in Pakistan’s transport industry, LMI supports businesses that need vehicles and cargo delivered safely and on time. Our operations follow ISO 9001 certification standards.",
+        "description": "With decades of experience in Pakistan\u2019s transport industry, LMI supports businesses that need vehicles and cargo delivered safely and on time. Our operations follow ISO 9001 certification standards.",
         "logoPlaceholder": "[logo]",
         "clients": [
           {
@@ -2615,7 +2606,7 @@
           },
           {
             "question": "How are vehicles protected during transit?",
-            "answer": "Vehicles are positioned and secured according to the carrier’s configuration, and the carrier is inspected before dispatch under our HSE protocols."
+            "answer": "Vehicles are positioned and secured according to the carrier\u2019s configuration, and the carrier is inspected before dispatch under our HSE protocols."
           },
           {
             "question": "How do I request a quote?",
@@ -2772,7 +2763,7 @@
       "sectionFive": {
         "eyebrow": "Trusted by",
         "heading": "Major Infrastructure Projects",
-        "description": "Contractors on some of Pakistan’s largest highway and infrastructure projects have relied on LMI’s heritage of dependable transportation, backed by written commendations.",
+        "description": "Contractors on some of Pakistan\u2019s largest highway and infrastructure projects have relied on LMI\u2019s heritage of dependable transportation, backed by written commendations.",
         "logoPlaceholder": "[logo]",
         "clients": [
           {
@@ -2806,7 +2797,7 @@
             "description": "Transport contractor to China Petroleum Engineering Construction Corporation, Contract No. 10, D.I. Khan (1999)."
           },
           {
-            "heading": "Badin–Sujawal Road",
+            "heading": "Badin\u2013Sujawal Road",
             "description": "Bitumen and petroleum products to the site for China Road & Bridge Corporation."
           },
           {
@@ -2911,7 +2902,7 @@
         "eyebrow": "How we work",
         "heading": "Built Around Your Production Flow",
         "paragraphs": [
-          "Manufacturing doesn’t pause, so your transportation shouldn’t either. Whether cargo is coming in from suppliers or the port, moving between plant and warehouse, or heading out to customers, we start by understanding the details: cargo type, volumes, loading environment, origin and destination, and your delivery schedule.",
+          "Manufacturing doesn\u2019t pause, so your transportation shouldn\u2019t either. Whether cargo is coming in from suppliers or the port, moving between plant and warehouse, or heading out to customers, we start by understanding the details: cargo type, volumes, loading environment, origin and destination, and your delivery schedule.",
           "We then match the right equipment to the job, whether enclosed trucks, containers or flatbeds. With an assured fleet network of verified trucks and drivers ready exactly when required, recurring and time-sensitive runs stay on schedule.",
           "Safety is part of every movement. Our vehicles and drivers follow our HSE protocols, including pre-trip checks and inspection procedures."
         ],
@@ -3020,7 +3011,7 @@
       "sectionFive": {
         "eyebrow": "Trusted by",
         "heading": "Manufacturers and Industry Leaders",
-        "description": "With decades of experience in Pakistan’s transport and logistics industry, LMI supports manufacturers who can’t afford delays. Our operations follow ISO 9001 certification standards.",
+        "description": "With decades of experience in Pakistan\u2019s transport and logistics industry, LMI supports manufacturers who can\u2019t afford delays. Our operations follow ISO 9001 certification standards.",
         "logoPlaceholder": "[logo]",
         "clients": [
           {
@@ -3087,7 +3078,7 @@
           },
           {
             "question": "How do I request a quote?",
-            "answer": "Tell us what you’re moving, the pickup point, the destination and your timeline, and our team will recommend a transportation approach."
+            "answer": "Tell us what you\u2019re moving, the pickup point, the destination and your timeline, and our team will recommend a transportation approach."
           }
         ]
       },
@@ -3145,7 +3136,7 @@
           {
             "icon": "recurring",
             "heading": "Recurring Routes",
-            "description": "Scheduled movements planned around your plant’s needs."
+            "description": "Scheduled movements planned around your plant\u2019s needs."
           }
         ]
       },
@@ -3293,7 +3284,7 @@
         "items": [
           {
             "question": "What chemical cargo do you transport?",
-            "answer": "Chemicals, fertilizers and liquid cargo, in bulk or packaged form, subject to the cargo’s characteristics and your site requirements."
+            "answer": "Chemicals, fertilizers and liquid cargo, in bulk or packaged form, subject to the cargo\u2019s characteristics and your site requirements."
           },
           {
             "question": "How do you match equipment to the cargo?",
@@ -3409,7 +3400,7 @@
           {
             "number": "4",
             "heading": "Controlled delivery",
-            "description": "Coordinated unloading with the receiving site’s requirements."
+            "description": "Coordinated unloading with the receiving site\u2019s requirements."
           }
         ]
       },
@@ -3811,7 +3802,7 @@
       },
       "sectionTwo": {
         "eyebrow": "How LMI does it",
-        "heading": "LMI’s Road Freight Transportation",
+        "heading": "LMI\u2019s Road Freight Transportation",
         "description": "One transport partner for varied and recurring road movements. This is how we run it.",
         "cards": [
           {
@@ -3834,7 +3825,7 @@
             "eyebrow": "Where we run it",
             "heading": "Karachi to the whole country",
             "paragraphs": [
-              "Loads moved from Karachi’s ports, factories and warehouses to cities, plants and distribution points across Pakistan, supported by our 10-acre base facility in Karachi.",
+              "Loads moved from Karachi\u2019s ports, factories and warehouses to cities, plants and distribution points across Pakistan, supported by our 10-acre base facility in Karachi.",
               "[Confirm: main lanes, e.g. Karachi to Lahore, Faisalabad, Multan, Peshawar, Quetta]"
             ]
           }
@@ -3944,7 +3935,7 @@
       },
       "sectionFive": {
         "eyebrow": "Trusted by",
-        "heading": "Pakistan’s Manufacturers and Industry",
+        "heading": "Pakistan\u2019s Manufacturers and Industry",
         "logoPlaceholder": "[logo]",
         "clients": [
           {
@@ -4040,8 +4031,8 @@
       },
       "sectionTwo": {
         "eyebrow": "How LMI does it",
-        "heading": "LMI’s Petroleum Transportation",
-        "description": "Petroleum has been LMI’s core business for decades. This is what that looks like in practice.",
+        "heading": "LMI\u2019s Petroleum Transportation",
+        "description": "Petroleum has been LMI\u2019s core business for decades. This is what that looks like in practice.",
         "cards": [
           {
             "eyebrow": "What we run",
@@ -4137,13 +4128,13 @@
           {
             "number": "5",
             "heading": "Deliver",
-            "description": "Controlled decanting to the receiving site’s requirements."
+            "description": "Controlled decanting to the receiving site\u2019s requirements."
           }
         ]
       },
       "sectionFive": {
         "eyebrow": "Trusted by",
-        "heading": "Pakistan’s Energy Leaders",
+        "heading": "Pakistan\u2019s Energy Leaders",
         "logoPlaceholder": "[logo]",
         "clients": [
           {
@@ -4233,7 +4224,7 @@
       },
       "sectionTwo": {
         "eyebrow": "How LMI does it",
-        "heading": "LMI’s Chemical & Liquid Cargo Transportation",
+        "heading": "LMI\u2019s Chemical & Liquid Cargo Transportation",
         "description": "We carry liquid and chemical cargo for industrial and fertilizer clients. This is how we run it.",
         "cards": [
           {
@@ -4256,7 +4247,7 @@
             "eyebrow": "Where we run it",
             "heading": "Seaports to plants",
             "paragraphs": [
-              "Cargo moved from Karachi’s ports and terminals to plants, depots and facilities across Pakistan.",
+              "Cargo moved from Karachi\u2019s ports and terminals to plants, depots and facilities across Pakistan.",
               "[Confirm: main lanes and receiving sites]"
             ]
           }
@@ -4320,7 +4311,7 @@
           {
             "number": "05",
             "heading": "Unload",
-            "description": "Controlled unloading to the receiving site’s requirements."
+            "description": "Controlled unloading to the receiving site\u2019s requirements."
           }
         ],
         "panelHeading": "Matched to the product",
@@ -4391,7 +4382,7 @@
         "items": [
           {
             "question": "What chemical and liquid cargo do you transport?",
-            "answer": "Chemicals, fertilizers and liquid cargo, in bulk or packaged form, subject to the cargo’s characteristics and your site requirements."
+            "answer": "Chemicals, fertilizers and liquid cargo, in bulk or packaged form, subject to the cargo\u2019s characteristics and your site requirements."
           },
           {
             "question": "How do you match equipment to the cargo?",
@@ -4436,7 +4427,7 @@
       },
       "sectionTwo": {
         "eyebrow": "How LMI does it",
-        "heading": "LMI’s Dry Cargo Transportation",
+        "heading": "LMI\u2019s Dry Cargo Transportation",
         "description": "Dry cargo is where much of our work with manufacturers sits today. This is how we run it.",
         "cards": [
           {
@@ -4543,7 +4534,7 @@
       },
       "sectionFive": {
         "eyebrow": "Trusted by",
-        "heading": "Pakistan’s Manufacturers",
+        "heading": "Pakistan\u2019s Manufacturers",
         "logoPlaceholder": "[logo]",
         "clients": [
           {
@@ -4639,7 +4630,7 @@
       },
       "sectionTwo": {
         "eyebrow": "How LMI does it",
-        "heading": "LMI’s Containerized Transportation",
+        "heading": "LMI\u2019s Containerized Transportation",
         "description": "Containers are one part of the move. This is how we run the rest.",
         "cards": [
           {
@@ -4662,7 +4653,7 @@
             "eyebrow": "Where we run it",
             "heading": "Ports, ICDs and inland sites",
             "paragraphs": [
-              "Containers moved between Karachi’s ports and terminals and plants, warehouses and customer sites across Pakistan.",
+              "Containers moved between Karachi\u2019s ports and terminals and plants, warehouses and customer sites across Pakistan.",
               "[Confirm: ports and terminals served, e.g. Karachi Port, Port Qasim; inland routes]"
             ]
           }
@@ -4816,7 +4807,7 @@
       },
       "sectionTwo": {
         "eyebrow": "How LMI does it",
-        "heading": "LMI’s Full Truckload Transportation",
+        "heading": "LMI\u2019s Full Truckload Transportation",
         "description": "When one shipment needs one truck, this is how we run it.",
         "cards": [
           {
@@ -4994,7 +4985,7 @@
       },
       "sectionTwo": {
         "eyebrow": "How LMI does it",
-        "heading": "LMI’s Flatbed Transportation",
+        "heading": "LMI\u2019s Flatbed Transportation",
         "description": "Open-deck loads need planning around access and securing. This is how we run it.",
         "cards": [
           {
@@ -5171,14 +5162,14 @@
       },
       "sectionTwo": {
         "eyebrow": "How LMI does it",
-        "heading": "LMI’s Heavy & Project Cargo Transportation",
+        "heading": "LMI\u2019s Heavy & Project Cargo Transportation",
         "description": "Complex loads are planned around the whole movement, not just the vehicle. This is how we run it.",
         "cards": [
           {
             "eyebrow": "What we run",
             "heading": "Project-specific equipment",
             "paragraphs": [
-              "Vehicles and trailer configurations selected for the cargo’s weight, dimensions and handling needs, with securing planned for the load.",
+              "Vehicles and trailer configurations selected for the cargo\u2019s weight, dimensions and handling needs, with securing planned for the load.",
               "[Confirm: heavy-haul and low-bed capability, maximum payload and dimensions]"
             ]
           },
@@ -5307,7 +5298,7 @@
             "description": "Transport contractor to CPECC, Contract No. 10, D.I. Khan (1999)."
           },
           {
-            "heading": "Badin–Sujawal Road",
+            "heading": "Badin\u2013Sujawal Road",
             "description": "Bitumen and petroleum products to site for China Road & Bridge Corporation."
           }
         ],

@@ -31,3 +31,8 @@ for file in supabase/tests/home-images.sql supabase/migrations/202611150002_home
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Home images preserve text/visibility and absent-image slots; related sections retire without losing their stored content.'
+
+for file in supabase/tests/leadership.sql supabase/migrations/202611150003_leadership_team_cards.sql supabase/migrations/202611150003_leadership_team_cards.sql supabase/tests/verify-leadership.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Leadership migration preserves existing cards, portrait, visibility and archived content; reruns do not duplicate cards or audit events.'
