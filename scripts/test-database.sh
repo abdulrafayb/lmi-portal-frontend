@@ -51,3 +51,8 @@ do $$ begin
 end $$;
 SQL
 printf '%s\n' 'Six-item overview FAQ migration adds once and preserves edited content and visibility on rerun.'
+
+for file in supabase/tests/industries-overview.sql supabase/migrations/202611150006_retire_industries_overview_cards.sql supabase/migrations/202611150006_retire_industries_overview_cards.sql supabase/tests/verify-industries-overview.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Industries overview retirement preserves content/history and is idempotent.'

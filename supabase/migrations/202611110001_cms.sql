@@ -123,7 +123,7 @@ revoke all on function public.cms_diff(jsonb,jsonb,text) from public, anon, auth
 
 create function public.cms_section_active(p_page_id text,p_key text) returns boolean
 language sql immutable set search_path = ''
-as $$ select not ((p_page_id='services' and p_key='sectionTwo') or (p_page_id='company--leadership' and p_key='sectionThree') or (p_key='sectionSeven' and p_page_id=any(array['services--chemical-liquid-cargo-transportation','services--containerized-transportation','services--dry-cargo-transportation','services--flatbed-transportation','services--full-truckload-ftl','services--heavy-project-cargo','services--petroleum-transportation','services--road-freight-transportation','fleet-visibility--fleet-equipment','fleet-visibility--nationwide-network','fleet-visibility--shipment-tracking-operational-visibility']))) $$;
+as $$ select not ((p_page_id='industries' and p_key='sectionFour') or (p_page_id='services' and p_key='sectionTwo') or (p_page_id='company--leadership' and p_key='sectionThree') or (p_key='sectionSeven' and p_page_id=any(array['services--chemical-liquid-cargo-transportation','services--containerized-transportation','services--dry-cargo-transportation','services--flatbed-transportation','services--full-truckload-ftl','services--heavy-project-cargo','services--petroleum-transportation','services--road-freight-transportation','fleet-visibility--fleet-equipment','fleet-visibility--nationwide-network','fleet-visibility--shipment-tracking-operational-visibility']))) $$;
 revoke all on function public.cms_section_active(text,text) from public,anon,authenticated;
 
 -- The only anonymous API. No templates, history or hidden section content leak.

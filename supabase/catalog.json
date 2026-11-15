@@ -2271,54 +2271,6 @@
           "path": "/hsse"
         }
       },
-      "sectionFour": {
-        "eyebrow": "Services by cargo type",
-        "heading": "Find the Right Service for Your Cargo",
-        "services": [
-          {
-            "heading": "For packaged or industrial goods",
-            "action": {
-              "label": "Explore Dry Cargo",
-              "path": "/services/dry-cargo-transportation"
-            }
-          },
-          {
-            "heading": "For petroleum and fuel",
-            "action": {
-              "label": "Explore Petroleum Transportation",
-              "path": "/services/petroleum-transportation"
-            }
-          },
-          {
-            "heading": "For chemical or liquid cargo",
-            "action": {
-              "label": "Explore Chemical & Liquid Cargo",
-              "path": "/services/chemical-liquid-cargo-transportation"
-            }
-          },
-          {
-            "heading": "For machinery or project cargo",
-            "action": {
-              "label": "Explore Flatbed & Project Cargo",
-              "path": "/services/heavy-project-cargo"
-            }
-          },
-          {
-            "heading": "For vehicle movements",
-            "action": {
-              "label": "Explore Car Carrier Services",
-              "path": "/industries/automotive"
-            }
-          },
-          {
-            "heading": "For dedicated truck capacity",
-            "action": {
-              "label": "Explore Full Truckload",
-              "path": "/services/full-truckload-ftl"
-            }
-          }
-        ]
-      },
       "sectionFive": {
         "eyebrow": "At a glance",
         "heading": "Services Each Industry Relies On",
