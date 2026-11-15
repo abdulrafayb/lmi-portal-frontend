@@ -2,6 +2,12 @@
 
 The existing portal UI now uses Supabase Auth, PostgreSQL and RPC APIs directly. No Node backend, MongoDB, Render service, or image-upload service is needed. The administrator edits one fixed section at a time, shows/hides it, and chooses Cancel or Publish. History records before/after values. Layouts, sections, order and list slots cannot be added/deleted through the portal.
 
+## Existing project: one editable field per heading
+
+Run [`supabase/migrations/202611150001_single_heading_fields.sql`](supabase/migrations/202611150001_single_heading_fields.sql) in Supabase SQL Editor. Do **not** rerun the initial table-creation migration. This update joins the heading lines currently stored in your database into one string, for both templates and published content. It preserves your edits, section visibility, and existing history, records a System migration event, and increments changed sections' revisions so old open editor tabs cannot overwrite the new format. Reload the portal afterward. It is safe to rerun: headings already converted are left unchanged.
+
+The portal displays one field even for legacy heading arrays during rollout; the website also accepts old heading arrays while projects migrate. Current catalog/seed content uses plain strings. Other arrays, such as service cards or paragraphs, remain separate fixed items. Headings wrap naturally on the website rather than using hard-coded line breaks. A fresh project seeded with the latest `seed.sql` already has this format; applying this migration there is a no-op.
+
 ## Set up Supabase (in this order)
 
 1. Create a Supabase project in your organization. Choose a nearby region, set a strong database password, and save it privately. The database password is **not** the portal login password and never belongs in a frontend environment variable.

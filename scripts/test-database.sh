@@ -20,3 +20,9 @@ do $$ begin
 end $$;
 SQL
 printf '%s\n' 'Supabase schema, RLS, single admin, public reads, publishing, audit, validation, revision conflicts, and safe seeding checks passed.'
+
+# Existing projects migrate edited heading arrays without resetting content.
+for file in supabase/tests/single-headings.sql supabase/migrations/202611150001_single_heading_fields.sql supabase/migrations/202611150001_single_heading_fields.sql supabase/tests/verify-single-headings.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Single-heading migration preserves edits/visibility, audits changes, is idempotent and rejects stale revisions.'

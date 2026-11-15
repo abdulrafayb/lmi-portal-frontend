@@ -1,4 +1,5 @@
 import { useId, useState } from "react";
+import { isHeading, headingText, legacyHeadingValue } from "./headings";
 import { WEBSITE } from "./api";
 const fixed = new Set(["id", "icon", "variant", "type", "as", "number"]);
 export const label = (value) =>
@@ -35,6 +36,21 @@ export default function Fields({
 }) {
   const id = useId();
   if (fixed.has(fieldKey)) return null;
+  if (
+    isHeading(fieldKey) &&
+    Array.isArray(template) &&
+    template.every((item) => item == null || typeof item === "string")
+  ) {
+    return (
+      <Fields
+        name={name}
+        fieldKey={fieldKey}
+        template=""
+        value={headingText(value)}
+        onChange={(text) => onChange(legacyHeadingValue(text, template))}
+      />
+    );
+  }
   if (Array.isArray(template))
     return (
       <fieldset>
