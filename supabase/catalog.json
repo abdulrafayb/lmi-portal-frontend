@@ -3702,6 +3702,36 @@
           "label": "Contact Us Today",
           "path": "/contact-us"
         }
+      },
+      "sectionSeven": {
+        "eyebrow": "Frequently asked questions",
+        "heading": "Services FAQs",
+        "items": [
+          {
+            "question": "What transportation services does LMI offer?",
+            "answer": "Placeholder answer: add a short overview of the transportation services available."
+          },
+          {
+            "question": "How do I choose the right service for my cargo?",
+            "answer": "Placeholder answer: explain how customers can discuss cargo type, size and handling requirements."
+          },
+          {
+            "question": "How can I request a transportation quote?",
+            "answer": "Placeholder answer: describe the quotation process and the details customers should provide."
+          },
+          {
+            "question": "Which locations do you serve?",
+            "answer": "Placeholder answer: add the service coverage and any route-specific information."
+          },
+          {
+            "question": "Can I receive updates about my shipment?",
+            "answer": "Placeholder answer: explain how customers can request shipment updates and contact the team."
+          },
+          {
+            "question": "What information is needed before booking?",
+            "answer": "Placeholder answer: list the cargo, pickup, delivery and scheduling details needed for a booking."
+          }
+        ]
       }
     }
   },

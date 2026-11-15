@@ -1,7 +1,7 @@
 \set ON_ERROR_STOP on
 insert into public.cms_admin(user_id) values('11111111-1111-1111-1111-111111111111');
 do $$ begin
- if (select count(*) from public.cms_pages)<>25 or (select count(*) from public.cms_sections)<>177 then raise exception 'Seed counts incorrect'; end if;
+ if (select count(*) from public.cms_pages)<>25 or (select count(*) from public.cms_sections)<>178 then raise exception 'Seed counts incorrect'; end if;
  begin insert into public.cms_admin(user_id) values('22222222-2222-2222-2222-222222222222');raise exception 'Second admin accepted';exception when unique_violation then null;end;
 end $$;
 begin;

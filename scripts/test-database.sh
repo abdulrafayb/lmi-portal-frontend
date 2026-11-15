@@ -41,3 +41,13 @@ for file in supabase/tests/services-overview.sql supabase/migrations/20261115000
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Services overview retirement preserves content/history and is idempotent.'
+
+for file in supabase/tests/overview-faq.sql supabase/migrations/202611150005_services_overview_faq.sql supabase/migrations/202611150005_services_overview_faq.sql supabase/tests/verify-overview-faq.sql supabase/migrations/202611150005_services_overview_faq.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 <<'SQL'
+do $$ begin
+ if not exists(select 1 from public.cms_sections where page_id='services' and key='sectionSeven' and data#>>'{items,0,answer}'='Admin edited FAQ' and not enabled and revision=3) then raise exception 'FAQ migration overwrote publication';end if;
+end $$;
+SQL
+printf '%s\n' 'Six-item overview FAQ migration adds once and preserves edited content and visibility on rerun.'
