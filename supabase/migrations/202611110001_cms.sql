@@ -121,6 +121,11 @@ begin
 end $$;
 revoke all on function public.cms_diff(jsonb,jsonb,text) from public, anon, authenticated;
 
+create function public.cms_section_active(p_page_id text,p_key text) returns boolean
+language sql immutable set search_path = ''
+as $$ select not (p_key='sectionSeven' and p_page_id=any(array['services--chemical-liquid-cargo-transportation','services--containerized-transportation','services--dry-cargo-transportation','services--flatbed-transportation','services--full-truckload-ftl','services--heavy-project-cargo','services--petroleum-transportation','services--road-freight-transportation','fleet-visibility--fleet-equipment','fleet-visibility--nationwide-network','fleet-visibility--shipment-tracking-operational-visibility'])) $$;
+revoke all on function public.cms_section_active(text,text) from public,anon,authenticated;
+
 -- The only anonymous API. No templates, history or hidden section content leak.
 create function public.cms_public_page(p_page_id text) returns jsonb
 language plpgsql stable security definer set search_path = ''
@@ -129,7 +134,7 @@ begin
   if not exists(select 1 from public.cms_pages where id=p_page_id) then raise sqlstate 'PT404' using message='Page not found'; end if;
   return jsonb_build_object('id',p_page_id,'sections',coalesce((
     select jsonb_object_agg(key,jsonb_build_object('enabled',enabled,'data',case when enabled then data else null end,'revision',revision))
-    from public.cms_sections where page_id=p_page_id
+    from public.cms_sections where page_id=p_page_id and public.cms_section_active(page_id,key)
   ),'{}'::jsonb));
 end $$;
 revoke all on function public.cms_public_page(text) from public;
@@ -146,7 +151,7 @@ language plpgsql stable security definer set search_path = ''
 as $$ begin
   if not public.cms_is_admin() then raise sqlstate 'PT403' using message='Administrator access required'; end if;
   return coalesce((select jsonb_agg(jsonb_build_object('id',p.id,'title',p.title,'route',p.route,'sections',(
-    select jsonb_agg(s.key order by s.position) from public.cms_sections s where s.page_id=p.id
+    select jsonb_agg(s.key order by s.position) from public.cms_sections s where s.page_id=p.id and public.cms_section_active(s.page_id,s.key)
   )) order by p.position) from public.cms_pages p),'[]'::jsonb);
 end $$;
 create function public.cms_admin_page(p_page_id text) returns jsonb
@@ -154,7 +159,7 @@ language plpgsql stable security definer set search_path = ''
 as $$ begin
   if not public.cms_is_admin() then raise sqlstate 'PT403' using message='Administrator access required'; end if;
   if not exists(select 1 from public.cms_pages where id=p_page_id) then raise sqlstate 'PT404' using message='Page not found'; end if;
-  return (select jsonb_build_object('id',p.id,'title',p.title,'route',p.route,'template',coalesce((select jsonb_object_agg(key,template) from public.cms_sections where page_id=p.id),'{}'::jsonb),'sections',coalesce((select jsonb_object_agg(key,jsonb_build_object('key',key,'data',data,'enabled',enabled,'revision',revision)) from public.cms_sections where page_id=p.id),'{}'::jsonb)) from public.cms_pages p where p.id=p_page_id);
+  return (select jsonb_build_object('id',p.id,'title',p.title,'route',p.route,'template',coalesce((select jsonb_object_agg(key,template) from public.cms_sections where page_id=p.id and public.cms_section_active(page_id,key)),'{}'::jsonb),'sections',coalesce((select jsonb_object_agg(key,jsonb_build_object('key',key,'data',data,'enabled',enabled,'revision',revision)) from public.cms_sections where page_id=p.id and public.cms_section_active(page_id,key)),'{}'::jsonb)) from public.cms_pages p where p.id=p_page_id);
 end $$;
 create function public.cms_publish_section(p_page_id text, p_key text, p_data jsonb, p_enabled boolean, p_expected_revision integer) returns jsonb
 language plpgsql security definer set search_path = ''
@@ -163,6 +168,7 @@ declare current_section public.cms_sections%rowtype; validated jsonb; changes js
 begin
   if not public.cms_is_admin() then raise sqlstate 'PT403' using message='Administrator access required'; end if;
   if p_enabled is null or p_expected_revision is null or p_expected_revision < 0 or p_data is null or jsonb_typeof(p_data)<>'object' or pg_column_size(p_data)>1000000 then raise sqlstate 'PT400' using message='Invalid section publication'; end if;
+  if not public.cms_section_active(p_page_id,p_key) then raise sqlstate 'PT404' using message='Section is no longer part of this page'; end if;
   select * into current_section from public.cms_sections where page_id=p_page_id and key=p_key for update;
   if not found then raise sqlstate 'PT404' using message='Section not found'; end if;
   if current_section.revision<>p_expected_revision then raise sqlstate 'PT409' using message='This section changed in another tab. Reload before publishing.'; end if;

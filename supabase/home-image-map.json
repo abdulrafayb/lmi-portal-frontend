@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "image": "/home/section-1-main-image.png",
+    "imageAlt": "Trucks traveling through a mountainous highway"
+  },
+  "services": [
+    "/home/section-2-image-1.png",
+    "/home/section-2-image-2.png",
+    "/home/section-2-image-3.png",
+    "/home/section-2-image-4.png",
+    "/home/section-2-image-5.png",
+    "/home/section-2-image-6.png",
+    "/home/section-2-image-7.png",
+    "/home/section-2-image-8.png"
+  ],
+  "industries": {
+    "0": "/home/section-8-image-1.png",
+    "1": "/home/section-8-image-2.png",
+    "3": "/home/section-8-image-4.png",
+    "4": "/home/section-8-image-5.png"
+  },
+  "retired": [
+    "services--chemical-liquid-cargo-transportation",
+    "services--containerized-transportation",
+    "services--dry-cargo-transportation",
+    "services--flatbed-transportation",
+    "services--full-truckload-ftl",
+    "services--heavy-project-cargo",
+    "services--petroleum-transportation",
+    "services--road-freight-transportation",
+    "fleet-visibility--fleet-equipment",
+    "fleet-visibility--nationwide-network",
+    "fleet-visibility--shipment-tracking-operational-visibility"
+  ]
+}

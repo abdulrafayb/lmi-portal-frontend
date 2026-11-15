@@ -26,3 +26,8 @@ for file in supabase/tests/single-headings.sql supabase/migrations/202611150001_
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Single-heading migration preserves edits/visibility, audits changes, is idempotent and rejects stale revisions.'
+
+for file in supabase/tests/home-images.sql supabase/migrations/202611150002_home_images_and_related_layouts.sql supabase/migrations/202611150002_home_images_and_related_layouts.sql supabase/tests/verify-home-images.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Home images preserve text/visibility and absent-image slots; related sections retire without losing their stored content.'
