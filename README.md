@@ -110,3 +110,7 @@ For existing projects, run the portal migration `supabase/migrations/20261115000
 ## Shipment Tracking Where It Applies retired
 
 Existing projects: run the portal migration `supabase/migrations/202611150007_retire_tracking_services.sql`, then rebuild the website and refresh the portal. The Where It Applies service-link section is retired from the layout/editor while stored data and history are preserved.
+
+## Three HSSE awards
+
+Existing projects must run the portal migration `supabase/migrations/202611160001_hsse_three_awards.sql` before rebuilding the website. It removes the fourth Shell award and its image slot while retaining current edits to the other three awards and the policy content. The migration records the change in history and is safe to rerun. Refresh the portal afterward.

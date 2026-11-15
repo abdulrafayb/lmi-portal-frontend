@@ -5,7 +5,7 @@ cms_test_container="lmi-supabase-test-$$"
 trap 'docker rm -fv "$cms_test_container" >/dev/null 2>&1 || true' EXIT
 docker run -d --name "$cms_test_container" -e POSTGRES_PASSWORD=disposable-test-only postgres:16 >/dev/null
 for ((i=0;i<60;i++)); do
-  if docker exec "$cms_test_container" pg_isready -U postgres >/dev/null 2>&1; then break; fi
+  if docker exec "$cms_test_container" pg_isready -h 127.0.0.1 -U postgres >/dev/null 2>&1; then break; fi
   sleep 0.5
 done
 for file in supabase/tests/auth-shim.sql supabase/migrations/202611110001_cms.sql supabase/seed.sql supabase/tests/access-and-publish.sql; do
@@ -61,3 +61,8 @@ for file in supabase/tests/tracking-services.sql supabase/migrations/20261115000
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Tracking services retirement preserves content/history and is idempotent.'
+
+for file in supabase/tests/hsse-awards.sql supabase/migrations/202611160001_hsse_three_awards.sql supabase/migrations/202611160001_hsse_three_awards.sql supabase/tests/verify-hsse-awards.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'HSSE three-award migration preserves edits/visibility and audits only once.'
