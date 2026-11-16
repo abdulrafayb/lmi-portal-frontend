@@ -117,4 +117,4 @@ Existing projects must run the portal migration `supabase/migrations/20261116000
 
 ## Website quote email
 
-The contact form now submits through Supabase and Resend, with Turnstile protection and private submission quotas. Follow [the step-by-step email setup](supabase/QUOTE_EMAIL_SETUP.md) to verify the sending domain, run the migration, configure secrets, deploy `send-quote`, and set the website's two public variables. No new portal frontend keys are required. The function is deployed separately from Netlify.
+The website submits directly to Formspree. There is no Supabase email function, email template backend, or email-service secret to configure. Follow [the Formspree setup guide](supabase/QUOTE_EMAIL_SETUP.md) to select `info@lmipk.com` as the recipient and configure the website endpoint. The portal's Supabase CMS and website rebuild function are unchanged.

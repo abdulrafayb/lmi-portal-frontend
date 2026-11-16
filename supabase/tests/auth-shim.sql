@@ -1,6 +1,5 @@
 -- ONLY for disposable PostgreSQL tests. Never run this in Supabase.
 create role anon nologin;
-create role service_role nologin;
 create role authenticated nologin;
 create schema auth;
 create table auth.users(id uuid primary key);
