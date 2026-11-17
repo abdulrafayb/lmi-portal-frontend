@@ -77,3 +77,8 @@ for file in supabase/tests/hsse-related.sql supabase/migrations/202611170002_ret
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'HSSE Related Pages retirement preserves content/history and is idempotent.'
+
+for file in supabase/tests/service-trust.sql supabase/migrations/202611170003_service_trust_cards.sql supabase/migrations/202611170003_service_trust_cards.sql supabase/tests/verify-service-trust.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Service trust migration preserves edited copy/images, cleared slots and visibility; reruns do not duplicate audit events.'

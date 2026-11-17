@@ -122,3 +122,11 @@ The website submits directly to Formspree. There is no Supabase email function, 
 ## HSSE Related Pages retired
 
 Existing projects: run the portal migration `supabase/migrations/202611170002_retire_hsse_related.sql` to retire HSSE’s Related Pages from the editor/public API, then refresh the portal and rebuild the website. The section is removed from the layout; its stored content and history are preserved. The migration is safe to rerun.
+
+## Service client and testimonial cards
+
+The eight service detail pages use matching rounded client cards, optional middle highlight cards only where that content already exists (Heavy & Project Cargo and Chemical & Liquid Cargo), and a full-width testimonial card. Existing client counts and copy are retained. Logos use the existing `image` URL field and a visual placeholder until supplied; names remain visible with uploaded logos.
+
+Existing projects: run the portal migration `supabase/migrations/202611170003_service_trust_cards.sql`, refresh the portal, and rebuild the website. It adds name/image fields to previously text-only client slots without overwriting edited names/images, visibility or other section content. The migration is safe to rerun. Old placeholder wording becomes the initial editable name only when no name field existed.
+
+To hide an individual client card, clear **both name and image** for that fixed item. Its structural ID/placeholder flags do not keep it visible. The remaining client cards expand evenly across the desktop row. Clear heading and description to hide a middle highlight; remaining highlights fill the row. Clear quote and attribution to hide the testimonial card. Clearing every visible field in the entire section hides it. Missing optional parts stay omitted. These are fixed slots: no CMS adding, deleting or layout controls have been introduced. Original `data/` files remain unchanged.

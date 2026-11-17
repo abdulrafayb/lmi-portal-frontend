@@ -4579,25 +4579,34 @@
         "clients": [
           {
             "id": "1",
-            "placeholder": "[Client logo: confirm clients for this service]"
+            "placeholder": "[Client logo: confirm clients for this service]",
+            "name": "[Client logo: confirm clients for this service]",
+            "image": null
           },
           {
             "id": "2",
-            "placeholder": "[Client logo: confirm clients for this service]"
+            "placeholder": "[Client logo: confirm clients for this service]",
+            "name": "[Client logo: confirm clients for this service]",
+            "image": null
           },
           {
             "id": "3",
-            "placeholder": "[Client logo: confirm clients for this service]"
+            "placeholder": "[Client logo: confirm clients for this service]",
+            "name": "[Client logo: confirm clients for this service]",
+            "image": null
           },
           {
             "id": "4",
-            "placeholder": "[Client logo: confirm clients for this service]"
+            "placeholder": "[Client logo: confirm clients for this service]",
+            "name": "[Client logo: confirm clients for this service]",
+            "image": null
           }
         ],
         "testimonial": {
           "quote": "[Client testimonial: two to three sentences about working with LMI]",
           "attribution": "[Name], [Job Title], [Company]"
-        }
+        },
+        "logoPlaceholder": "[logo]"
       },
       "sectionSix": {
         "eyebrow": "FAQ",
@@ -4757,25 +4766,34 @@
         "clients": [
           {
             "id": "1",
-            "placeholder": "[Client logo: confirm clients for this service]"
+            "placeholder": "[Client logo: confirm clients for this service]",
+            "name": "[Client logo: confirm clients for this service]",
+            "image": null
           },
           {
             "id": "2",
-            "placeholder": "[Client logo: confirm clients for this service]"
+            "placeholder": "[Client logo: confirm clients for this service]",
+            "name": "[Client logo: confirm clients for this service]",
+            "image": null
           },
           {
             "id": "3",
-            "placeholder": "[Client logo: confirm clients for this service]"
+            "placeholder": "[Client logo: confirm clients for this service]",
+            "name": "[Client logo: confirm clients for this service]",
+            "image": null
           },
           {
             "id": "4",
-            "placeholder": "[Client logo: confirm clients for this service]"
+            "placeholder": "[Client logo: confirm clients for this service]",
+            "name": "[Client logo: confirm clients for this service]",
+            "image": null
           }
         ],
         "testimonial": {
           "quote": "[Client testimonial: two to three sentences about working with LMI]",
           "attribution": "[Name], [Job Title], [Company]"
-        }
+        },
+        "logoPlaceholder": "[logo]"
       },
       "sectionSix": {
         "eyebrow": "FAQ",
@@ -4934,25 +4952,34 @@
         "clients": [
           {
             "id": "1",
-            "placeholder": "[Client logo: confirm clients for this service]"
+            "placeholder": "[Client logo: confirm clients for this service]",
+            "name": "[Client logo: confirm clients for this service]",
+            "image": null
           },
           {
             "id": "2",
-            "placeholder": "[Client logo: confirm clients for this service]"
+            "placeholder": "[Client logo: confirm clients for this service]",
+            "name": "[Client logo: confirm clients for this service]",
+            "image": null
           },
           {
             "id": "3",
-            "placeholder": "[Client logo: confirm clients for this service]"
+            "placeholder": "[Client logo: confirm clients for this service]",
+            "name": "[Client logo: confirm clients for this service]",
+            "image": null
           },
           {
             "id": "4",
-            "placeholder": "[Client logo: confirm clients for this service]"
+            "placeholder": "[Client logo: confirm clients for this service]",
+            "name": "[Client logo: confirm clients for this service]",
+            "image": null
           }
         ],
         "testimonial": {
           "quote": "[Client testimonial: two to three sentences about working with LMI]",
           "attribution": "[Name], [Job Title], [Company]"
-        }
+        },
+        "logoPlaceholder": "[logo]"
       },
       "sectionSix": {
         "eyebrow": "FAQ",
