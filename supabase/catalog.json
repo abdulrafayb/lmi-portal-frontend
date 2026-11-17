@@ -400,31 +400,6 @@
           }
         ]
       },
-      "sectionTen": {
-        "heading": "Related Pages",
-        "services": [
-          {
-            "heading": "Fleet & Equipment",
-            "path": "/fleet-visibility/fleet-equipment",
-            "label": "Explore"
-          },
-          {
-            "heading": "Nationwide Network",
-            "path": "/fleet-visibility/nationwide-network",
-            "label": "Explore"
-          },
-          {
-            "heading": "Shipment Tracking",
-            "path": "/fleet-visibility/shipment-tracking-operational-visibility",
-            "label": "Explore"
-          },
-          {
-            "heading": "Services",
-            "path": "/services",
-            "label": "Explore"
-          }
-        ]
-      },
       "sectionEleven": {
         "heading": "Safety is part of how the movement is planned.",
         "description": "Tell us about your cargo and route.",

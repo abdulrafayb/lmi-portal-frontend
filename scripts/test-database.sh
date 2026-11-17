@@ -72,3 +72,8 @@ for file in supabase/migrations/202611170001_remove_quote_email_backend.sql supa
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Obsolete quote backend cleanup is idempotent and preserves CMS history.'
+
+for file in supabase/tests/hsse-related.sql supabase/migrations/202611170002_retire_hsse_related.sql supabase/migrations/202611170002_retire_hsse_related.sql supabase/tests/verify-hsse-related.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'HSSE Related Pages retirement preserves content/history and is idempotent.'
