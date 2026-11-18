@@ -253,7 +253,9 @@ function Editor({ post, onDirty, onSaved }) {
           setId(result.id);
           setRevision(result.revision);
           setBaseline(JSON.stringify(data));
-          setMessage(result.deploymentMessage);
+          setMessage(
+            "Saved to database. Use Publish at the top when all changes are ready.",
+          );
           onSaved();
         } catch (err) {
           setError(err.message);
@@ -329,8 +331,9 @@ function Editor({ post, onDirty, onSaved }) {
           <option value="published">Published</option>
         </select>
         <p className="hint">
-          Choose Draft and save to unpublish. Changes appear after the website
-          rebuild completes.
+          Draft keeps this item hidden; Published includes it in the next
+          website build. Save here, then use Publish at the top to update the
+          website.
         </p>
       </fieldset>
       {error && (
@@ -355,11 +358,7 @@ function Editor({ post, onDirty, onSaved }) {
           </a>
         )}
         <button disabled={busy || uploading || (!dirty && !!id)}>
-          {busy
-            ? "Saving…"
-            : data.status === "published"
-              ? "Save & publish"
-              : "Save draft"}
+          {busy ? "Saving…" : "Save"}
         </button>
       </div>
       {id && (

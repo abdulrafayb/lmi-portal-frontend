@@ -16,7 +16,7 @@ import {
   getAdmin,
   getPages,
   getPage,
-  publishSection,
+  saveSection,
   getHistory,
   requestWebsiteBuild,
 } from "./api";
@@ -96,7 +96,7 @@ function SectionEditor({
   pageId,
   sectionKey,
   onDirty,
-  onPublished,
+  onSaved,
 }) {
   const cache = useQueryClient();
   const [data, setData] = useState(() => structuredClone(entry.data));
@@ -112,15 +112,14 @@ function SectionEditor({
     return () => onDirty(false);
   }, [dirty, onDirty]);
   const publish = useMutation({
-    mutationFn: () =>
-      publishSection(pageId, sectionKey, data, enabled, revision),
+    mutationFn: () => saveSection(pageId, sectionKey, data, enabled, revision),
     onSuccess: async (result) => {
       setRevision(result.revision);
-      onPublished(result);
+      onSaved(result);
       setPublished(
         result.unchanged
-          ? "No changes to publish."
-          : "Section published successfully.",
+          ? "No changes to save."
+          : "Section saved to database. Use Publish above when all changes are ready.",
       );
       await cache.invalidateQueries({ queryKey: ["admin-page", pageId] });
       await cache.invalidateQueries({ queryKey: ["history"] });
@@ -203,7 +202,7 @@ function SectionEditor({
       )}
       <div className="editor-actions">
         <span className="hint">
-          {dirty ? "Unpublished changes" : "All changes published"}
+          {dirty ? "Unsaved changes" : "All changes saved"}
         </span>
         <button
           type="button"
@@ -217,7 +216,7 @@ function SectionEditor({
           type="submit"
           disabled={publish.isPending || uploading || !dirty}
         >
-          {publish.isPending ? "Publishing…" : "Publish"}
+          {publish.isPending ? "Saving…" : "Save"}
         </button>
       </div>
     </form>
@@ -347,11 +346,13 @@ function Dashboard() {
       setNotice(error.message);
     },
   });
-  function reportPublication(result) {
+  function reportSave(result) {
     setNotice(
-      result.unchanged ? "No changes to publish." : result.deployment.message,
+      result.unchanged
+        ? "No changes to save."
+        : "Saved to database. Click Publish when all your changes are ready.",
     );
-    setBuildFailed(result.deployment?.requested === false);
+    setBuildFailed(false);
   }
   const me = useQuery({
     queryKey: ["me"],
@@ -377,7 +378,7 @@ function Dashboard() {
     window.addEventListener("beforeunload", handler);
     return () => window.removeEventListener("beforeunload", handler);
   }, [dirty]);
-  const leave = () => !dirty || window.confirm("Discard unpublished changes?");
+  const leave = () => !dirty || window.confirm("Discard unsaved changes?");
   const sectionKeys = (
     pages.data?.find((item) => item.id === pageId)?.sections ??
     Object.keys(page.data?.template ?? {})
@@ -445,6 +446,30 @@ function Dashboard() {
           <span className="eyebrow">LOGISTICS MANAGEMENT INTERNATIONAL</span>
           <span className="badge">Administrator</span>
         </header>
+        {me.isSuccess && pages.isSuccess && view !== "history" && (
+          <>
+            {notice && (
+              <div className={buildFailed ? "error" : "success"} role="status">
+                <p>{notice}</p>
+              </div>
+            )}
+            <div className="build-controls">
+              <span className="hint">
+                {dirty
+                  ? "Save your current changes before publishing."
+                  : "Save changes across sections first. Publish runs the website pipeline once using all saved content."}
+              </span>
+              <button
+                type="button"
+                className="secondary"
+                disabled={retryBuild.isPending || dirty}
+                onClick={() => retryBuild.mutate()}
+              >
+                {retryBuild.isPending ? "Publishing…" : "Publish"}
+              </button>
+            </div>
+          </>
+        )}
         <Message error={me.error ?? pages.error} />
         {me.isError || pages.isError ? null : pages.isPending ? (
           <Loading />
@@ -455,31 +480,9 @@ function Dashboard() {
         ) : (
           <>
             <h1>Website content</h1>
-            {notice && (
-              <div className={buildFailed ? "error" : "success"} role="status">
-                <p>{notice}</p>
-              </div>
-            )}
-            <div className="build-controls">
-              <span className="hint">
-                Published changes appear after a successful website deployment.
-              </span>
-              <button
-                type="button"
-                className="secondary"
-                onClick={() => retryBuild.mutate()}
-                disabled={retryBuild.isPending}
-              >
-                {retryBuild.isPending
-                  ? "Requesting build…"
-                  : buildFailed
-                    ? "Retry website build"
-                    : "Request website rebuild"}
-              </button>
-            </div>
             <p>
-              Edit existing content or hide a section. Publish applies to the
-              selected section only.
+              Edit existing content or hide a section. Save each section, then
+              use Publish above to update the website once.
             </p>
             <div className="selectors">
               <div>
@@ -542,7 +545,7 @@ function Dashboard() {
                 }
                 template={page.data.template[key]}
                 onDirty={setDirty}
-                onPublished={reportPublication}
+                onSaved={reportSave}
               />
             ) : null}
           </>

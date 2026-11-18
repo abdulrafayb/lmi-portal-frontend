@@ -1,5 +1,8 @@
 # LMI content portal — Supabase
 
+**Current Save / Publish workflow:** Save at the bottom of a section or publication writes only to Supabase and records its revision/history. It never requests a website pipeline. After saving all changes, use the top **Publish** button (available in Website content and Publications) to request one website build using all saved content. The button is disabled while the current editor has unsaved changes. Website changes appear after that deployment succeeds. A failed Publish can be retried without resaving data. This replaces the automatic rebuild-on-save behavior described in older setup notes below. No database migration or Edge Function redeployment is required for this change; deploy the portal frontend.
+
+
 The existing portal UI now uses Supabase Auth, PostgreSQL and RPC APIs directly. No Node backend, MongoDB, Render service, or image-upload service is needed. The administrator edits one fixed section at a time, shows/hides it, and chooses Cancel or Publish. History records before/after values. Layouts, sections, order and list slots cannot be added/deleted through the portal.
 
 ## Existing project: one editable field per heading
