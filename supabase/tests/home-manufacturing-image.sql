@@ -1,0 +1,1 @@
+update public.cms_sections set data=jsonb_set(jsonb_set(jsonb_set(data,'{industries,2,title}','"Admin manufacturing title"'),'{industries,2,image}','null'),'{industries,1,image}','"/keep-chemical-image.webp"'),enabled=false,revision=20 where page_id='home' and key='sectionEight';

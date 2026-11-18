@@ -82,3 +82,8 @@ for file in supabase/tests/service-trust.sql supabase/migrations/202611170003_se
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Service trust migration preserves edited copy/images, cleared slots and visibility; reruns do not duplicate audit events.'
+
+for file in supabase/tests/home-manufacturing-image.sql supabase/migrations/202611180001_home_manufacturing_image.sql supabase/migrations/202611180001_home_manufacturing_image.sql supabase/tests/verify-home-manufacturing-image.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Home manufacturing photo migration preserves copy/visibility, updates the correct slot and is idempotent.'
