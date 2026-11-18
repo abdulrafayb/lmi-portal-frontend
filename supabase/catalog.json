@@ -1300,7 +1300,7 @@
       },
       "sectionNine": {
         "insights": {
-          "eyebrow": "Insights",
+          "eyebrow": "Articles",
           "heading": "Latest From the Road",
           "items": [
             {
@@ -1320,7 +1320,7 @@
             }
           ],
           "action": {
-            "label": "View all insights",
+            "label": "View all articles",
             "path": "/articles"
           }
         },

@@ -132,3 +132,17 @@ for file in supabase/tests/storage-shim.sql supabase/tests/publications-legacy.s
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Publications, drafts, unpublishing, stale revisions, audit, rich text validation and storage admin policies passed.'
+
+docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 <<'SQL' >/dev/null
+update public.cms_sections set enabled=false,data=jsonb_set(jsonb_set(data,'{insights,eyebrow}','"Insights"'),'{insights,action,label}','"View all insights"') where page_id='home' and key='sectionNine';
+SQL
+for ((i=0;i<2;i++)); do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < supabase/migrations/202611180011_home_article_labels.sql >/dev/null
+done
+docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 <<'SQL' >/dev/null
+do $$ begin
+ if exists(select 1 from public.cms_sections where page_id='home' and key='sectionNine' and (enabled or data#>>'{insights,eyebrow}'<>'Articles' or data#>>'{insights,action,label}'<>'View all articles')) then raise exception 'Article label migration failed';end if;
+ if (select count(*) from public.cms_history where actor='System: Home article labels')<>1 then raise exception 'Article label migration not idempotent';end if;
+end $$;
+SQL
+printf '%s\n' 'Home article labels migrate once and preserve visibility.'
