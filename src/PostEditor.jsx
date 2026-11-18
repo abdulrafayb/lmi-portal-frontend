@@ -21,6 +21,7 @@ const empty = () => ({
   image_alt: "",
   author: "",
   author_role: "",
+  tags: [],
   content: { type: "doc", content: [{ type: "paragraph" }] },
   seo_title: "",
   seo_description: "",
@@ -36,12 +37,88 @@ const editable = [
   "image_alt",
   "author",
   "author_role",
+  "tags",
   "content",
   "seo_title",
   "seo_description",
   "status",
   "published_at",
 ];
+function TagInput({ value, onChange }) {
+  const [input, setInput] = useState("");
+  const [error, setError] = useState("");
+  const add = () => {
+    const additions = input
+      .split(",")
+      .map((t) => t.trim())
+      .filter(Boolean);
+    const next = [...value];
+    for (const tag of additions) {
+      if (tag.length > 50) {
+        setError("Each tag can be up to 50 characters.");
+        return;
+      }
+      if (!next.some((t) => t.toLowerCase() === tag.toLowerCase()))
+        next.push(tag);
+    }
+    if (next.length > 20) {
+      setError("Use up to 20 tags.");
+      return;
+    }
+    onChange(next);
+    setInput("");
+    setError("");
+  };
+  return (
+    <div className="field">
+      <label htmlFor="post-tags">Tags</label>
+      <div className="tag-entry">
+        <input
+          id="post-tags"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === ",") {
+              e.preventDefault();
+              add();
+            }
+          }}
+          onBlur={() => {
+            if (input.trim()) add();
+          }}
+          placeholder="Add a tag and press Enter"
+        />
+        <button type="button" className="secondary" onClick={add}>
+          Add tags
+        </button>
+      </div>
+      <small className="hint">
+        Add multiple tags with Enter or separate them with commas. Up to 20
+        tags.
+      </small>
+      <ul className="tag-pills" aria-label="Publication tags">
+        {value.map((tag) => (
+          <li key={tag}>
+            {tag}
+            <button
+              type="button"
+              className="secondary"
+              aria-label={`Remove tag ${tag}`}
+              onClick={() => onChange(value.filter((t) => t !== tag))}
+            >
+              ×
+            </button>
+          </li>
+        ))}
+      </ul>
+      {error && (
+        <p role="alert" className="error">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
 function RichEditor({ value, onChange, onBusy }) {
   const [image, setImage] = useState("");
   const [showImage, setShowImage] = useState(false);
@@ -298,6 +375,7 @@ function Editor({ post, onDirty, onSaved }) {
         {field("image_alt", "Image description")}
         {field("author", "Author")}
         {field("author_role", "Author role")}
+        <TagInput value={data.tags || []} onChange={(v) => change("tags", v)} />
         <label htmlFor="post-date">Publication date</label>
         <input
           id="post-date"

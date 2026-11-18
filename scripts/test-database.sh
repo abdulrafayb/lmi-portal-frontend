@@ -146,3 +146,8 @@ do $$ begin
 end $$;
 SQL
 printf '%s\n' 'Home article labels migrate once and preserve visibility.'
+
+for file in supabase/migrations/202611180012_publication_tags.sql supabase/migrations/202611180012_publication_tags.sql supabase/tests/publication-tags.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Publication tags validate, deduplicate, save, clear, audit and remain compatible with older clients.'

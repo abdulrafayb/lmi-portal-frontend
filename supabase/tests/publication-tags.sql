@@ -1,0 +1,20 @@
+begin;
+set local role authenticated;
+select set_config('request.jwt.claims','{"sub":"11111111-1111-1111-1111-111111111111","email":"admin@example.test"}',true);
+do $$ declare p jsonb; saved jsonb; post_identifier uuid;
+begin
+ select to_jsonb(t) into p from public.cms_posts t where kind='article' limit 1;
+ p:=p||'{"slug":"tag-test","tags":[" Freight ","Safety","freight"]}';
+ saved:=public.cms_save_post(p);post_identifier:=(saved->>'id')::uuid;
+ if saved->'tags'<>'["Freight","Safety"]'::jsonb then raise exception 'Tags not trimmed/deduplicated';end if;
+ if not exists(select 1 from jsonb_array_elements(public.cms_public_posts()) x where x->>'id'=post_identifier::text and x->'tags'='["Freight","Safety"]') then raise exception 'Public tags missing';end if;
+ saved:=public.cms_save_post(p - 'tags',post_identifier,1);
+ if saved->'tags'<>'["Freight","Safety"]' then raise exception 'Older client wiped tags';end if;
+ saved:=public.cms_save_post(p||'{"tags":[]}',post_identifier,2);
+ if saved->'tags'<>'[]' then raise exception 'Tags did not clear';end if;
+ begin perform public.cms_save_post(p||'{"tags":[123]}');raise exception 'Non-text tag accepted';exception when sqlstate 'PT400' then null;end;
+ begin perform public.cms_save_post(p||'{"tags":[""]}');raise exception 'Empty tag accepted';exception when sqlstate 'PT400' then null;end;
+ begin perform public.cms_save_post(p||jsonb_build_object('tags',jsonb_build_array(repeat('x',51))));raise exception 'Long tag accepted';exception when sqlstate 'PT400' then null;end;
+ if not exists(select 1 from public.cms_post_history where post_id=post_identifier and changes::text like '%tags%') then raise exception 'Tags not audited';end if;
+end $$;
+rollback;
