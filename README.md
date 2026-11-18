@@ -148,3 +148,7 @@ Run `supabase/migrations/202611180003_company_images.sql` after the earlier lead
 ## Service page images
 
 Run `supabase/migrations/202611180004_service_images.sql` after the service trust cards migration, then rebuild the website. This connects all 54 supplied service images, including the overview hero. Numbered logos follow existing client-card order. Text/visibility and missing or cleared cards are preserved; reruns are safe. `supabase/service-image-map.json` lists the mappings, and fresh installs receive the updated seed.
+
+## About Us partner logos
+
+Run `supabase/migrations/202611180005_about_partner_logos.sql`, then rebuild the website to show the eight supplied `public/our-company/about-us/logo-1.png` through `logo-8.png` images in section six. Logos follow existing partner order. The migration preserves edited names/visibility and skips missing or cleared objects; reruns are safe. Fresh installs use the updated seed.

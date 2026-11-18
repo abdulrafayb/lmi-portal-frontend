@@ -1725,35 +1725,35 @@
         "partners": [
           {
             "name": "Engro",
-            "image": null
+            "image": "/our-company/about-us/logo-1.png"
           },
           {
             "name": "CPECC",
-            "image": null
+            "image": "/our-company/about-us/logo-2.png"
           },
           {
             "name": "WFP",
-            "image": null
+            "image": "/our-company/about-us/logo-3.png"
           },
           {
             "name": "Daewoo",
-            "image": null
+            "image": "/our-company/about-us/logo-4.png"
           },
           {
             "name": "BP",
-            "image": null
+            "image": "/our-company/about-us/logo-5.png"
           },
           {
             "name": "Shell",
-            "image": null
+            "image": "/our-company/about-us/logo-6.png"
           },
           {
             "name": "PSO",
-            "image": null
+            "image": "/our-company/about-us/logo-7.png"
           },
           {
             "name": "Caltex",
-            "image": null
+            "image": "/our-company/about-us/logo-8.png"
           }
         ]
       },
