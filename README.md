@@ -152,3 +152,7 @@ Run `supabase/migrations/202611180004_service_images.sql` after the service trus
 ## About Us partner logos
 
 Run `supabase/migrations/202611180005_about_partner_logos.sql`, then rebuild the website to show the eight supplied `public/our-company/about-us/logo-1.png` through `logo-8.png` images in section six. Logos follow existing partner order. The migration preserves edited names/visibility and skips missing or cleared objects; reruns are safe. Fresh installs use the updated seed.
+
+## Industry page images
+
+Run `supabase/migrations/202611180006_industry_images.sql`, then rebuild the website. It connects all 58 supplied industry images, including overview images. Numbered images/logos follow existing card order. Automotive's `section-2-main-image.png` maps to CMS sectionThree, which is displayed second. Text, visibility and cleared card objects are preserved; reruns are safe. `supabase/industry-image-map.json` lists all mappings. Fresh installs use the updated seed.

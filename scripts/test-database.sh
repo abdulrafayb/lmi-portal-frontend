@@ -107,3 +107,8 @@ for file in supabase/tests/about-partner-logos.sql supabase/migrations/202611180
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'About Us partner logos preserve edited names, visibility and cleared cards; reruns are safe.'
+
+for file in supabase/tests/industry-images.sql supabase/migrations/202611180006_industry_images.sql supabase/migrations/202611180006_industry_images.sql supabase/tests/verify-industry-images.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Industry images map correctly, preserve copy/visibility and cleared cards, and audit once.'
