@@ -156,3 +156,7 @@ Run `supabase/migrations/202611180005_about_partner_logos.sql`, then rebuild the
 ## Industry page images
 
 Run `supabase/migrations/202611180006_industry_images.sql`, then rebuild the website. It connects all 58 supplied industry images, including overview images. Numbered images/logos follow existing card order. Automotive's `section-2-main-image.png` maps to CMS sectionThree, which is displayed second. Text, visibility and cleared card objects are preserved; reruns are safe. `supabase/industry-image-map.json` lists all mappings. Fresh installs use the updated seed.
+
+## Fleet & Visibility images
+
+Run `supabase/migrations/202611180007_fleet_images.sql`, then rebuild the website. It connects all 15 supplied images on Fleet & Equipment, Nationwide Network and Shipment Tracking. It also adds editable `image`/`imageAlt` fields to the tracking section-three map panel. Text, visibility and cleared card objects are preserved; reruns are safe. `supabase/fleet-image-map.json` lists mappings, using the exact supplied folder spelling `fleet-and-visiblity`. Fresh installs use the updated seed.

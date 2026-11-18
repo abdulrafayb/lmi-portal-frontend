@@ -1,0 +1,144 @@
+[
+  {
+    "page": "fleet-visibility--fleet-equipment",
+    "section": "sectionOne",
+    "path": [
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/fleet-and-equipment/section-1-main-image.png"
+  },
+  {
+    "page": "fleet-visibility--fleet-equipment",
+    "section": "sectionThree",
+    "path": [
+      "services",
+      "0",
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/fleet-and-equipment/section-3-image-1.png"
+  },
+  {
+    "page": "fleet-visibility--fleet-equipment",
+    "section": "sectionThree",
+    "path": [
+      "services",
+      "1",
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/fleet-and-equipment/section-3-image-2.png"
+  },
+  {
+    "page": "fleet-visibility--fleet-equipment",
+    "section": "sectionThree",
+    "path": [
+      "services",
+      "2",
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/fleet-and-equipment/section-3-image-3.png"
+  },
+  {
+    "page": "fleet-visibility--fleet-equipment",
+    "section": "sectionThree",
+    "path": [
+      "services",
+      "3",
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/fleet-and-equipment/section-3-image-4.png"
+  },
+  {
+    "page": "fleet-visibility--fleet-equipment",
+    "section": "sectionThree",
+    "path": [
+      "services",
+      "4",
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/fleet-and-equipment/section-3-image-5.png"
+  },
+  {
+    "page": "fleet-visibility--fleet-equipment",
+    "section": "sectionThree",
+    "path": [
+      "services",
+      "5",
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/fleet-and-equipment/section-3-image-6.png"
+  },
+  {
+    "page": "fleet-visibility--nationwide-network",
+    "section": "sectionOne",
+    "path": [
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/nationwide-network/section-1-main-image.png"
+  },
+  {
+    "page": "fleet-visibility--nationwide-network",
+    "section": "sectionFour",
+    "path": [
+      "locations",
+      "0",
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/nationwide-network/section-4-image-1.png"
+  },
+  {
+    "page": "fleet-visibility--nationwide-network",
+    "section": "sectionFour",
+    "path": [
+      "locations",
+      "1",
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/nationwide-network/section-4-image-2.png"
+  },
+  {
+    "page": "fleet-visibility--nationwide-network",
+    "section": "sectionFour",
+    "path": [
+      "locations",
+      "2",
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/nationwide-network/section-4-image-3.png"
+  },
+  {
+    "page": "fleet-visibility--nationwide-network",
+    "section": "sectionFour",
+    "path": [
+      "locations",
+      "3",
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/nationwide-network/section-4-image-4.png"
+  },
+  {
+    "page": "fleet-visibility--nationwide-network",
+    "section": "sectionFour",
+    "path": [
+      "locations",
+      "4",
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/nationwide-network/section-4-image-5.png"
+  },
+  {
+    "page": "fleet-visibility--shipment-tracking-operational-visibility",
+    "section": "sectionOne",
+    "path": [
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/shipment-tracking-and-visibility/section-1-main-image.png"
+  },
+  {
+    "page": "fleet-visibility--shipment-tracking-operational-visibility",
+    "section": "sectionThree",
+    "path": [
+      "image"
+    ],
+    "image": "/fleet-and-visiblity/shipment-tracking-and-visibility/section-3-main-image.png"
+  }
+]

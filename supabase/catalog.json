@@ -423,7 +423,7 @@
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
         },
-        "image": null,
+        "image": "/fleet-and-visiblity/shipment-tracking-and-visibility/section-1-main-image.png",
         "imageAlt": "LMI operations desk monitoring vehicles",
         "imagePlaceholder": "[Photo: LMI operations desk monitoring vehicles]"
       },
@@ -489,7 +489,9 @@
             "value": "[Date and time]"
           }
         ],
-        "note": "[Illustrative layout only. Replace with the real tracking view LMI offers.]"
+        "note": "[Illustrative layout only. Replace with the real tracking view LMI offers.]",
+        "image": "/fleet-and-visiblity/shipment-tracking-and-visibility/section-3-main-image.png",
+        "imageAlt": "Illustrative shipment route and vehicle position"
       },
       "sectionFour": {
         "eyebrow": "How updates work",
@@ -563,7 +565,7 @@
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
         },
-        "image": null,
+        "image": "/fleet-and-visiblity/nationwide-network/section-1-main-image.png",
         "imageAlt": "LMI truck on a highway",
         "imagePlaceholder": "[Photo: LMI truck on a highway]"
       },
@@ -676,35 +678,35 @@
           {
             "heading": "Ports & Terminals",
             "description": "Cargo lifted from Karachi’s ports and terminals.",
-            "image": null,
+            "image": "/fleet-and-visiblity/nationwide-network/section-4-image-1.png",
             "imageAlt": "Ports & Terminals",
             "imagePlaceholder": "[Photo: Ports & Terminals]"
           },
           {
             "heading": "Refineries & Industrial Plants",
             "description": "Petroleum, chemical and manufacturing sites.",
-            "image": null,
+            "image": "/fleet-and-visiblity/nationwide-network/section-4-image-2.png",
             "imageAlt": "Refineries & Industrial Plants",
             "imagePlaceholder": "[Photo: Refineries & Industrial Plants]"
           },
           {
             "heading": "Warehouses & Distribution Points",
             "description": "Movements between storage and customers.",
-            "image": null,
+            "image": "/fleet-and-visiblity/nationwide-network/section-4-image-3.png",
             "imageAlt": "Warehouses & Distribution Points",
             "imagePlaceholder": "[Photo: Warehouses & Distribution Points]"
           },
           {
             "heading": "Construction & Project Sites",
             "description": "Machinery and materials to remote sites.",
-            "image": null,
+            "image": "/fleet-and-visiblity/nationwide-network/section-4-image-4.png",
             "imageAlt": "Construction & Project Sites",
             "imagePlaceholder": "[Photo: Construction & Project Sites]"
           },
           {
             "heading": "Customer Locations",
             "description": "Commercial and industrial delivery points nationwide.",
-            "image": null,
+            "image": "/fleet-and-visiblity/nationwide-network/section-4-image-5.png",
             "imageAlt": "Customer Locations",
             "imagePlaceholder": "[Photo: Customer Locations]"
           }
@@ -804,7 +806,7 @@
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
         },
-        "image": null,
+        "image": "/fleet-and-visiblity/fleet-and-equipment/section-1-main-image.png",
         "imageAlt": "LMI tankers, trucks and flatbed lined up",
         "imagePlaceholder": "[Photo: LMI tankers, trucks and flatbed lined up]"
       },
@@ -845,7 +847,7 @@
         "services": [
           {
             "heading": "Petroleum Tankers",
-            "image": null,
+            "image": "/fleet-and-visiblity/fleet-and-equipment/section-3-image-1.png",
             "imageAlt": "Petroleum Tankers",
             "imagePlaceholder": "[Photo: Petroleum Tankers]",
             "label": "Explore",
@@ -853,7 +855,7 @@
           },
           {
             "heading": "Chemical & Liquid Tankers",
-            "image": null,
+            "image": "/fleet-and-visiblity/fleet-and-equipment/section-3-image-2.png",
             "imageAlt": "Chemical & Liquid Tankers",
             "imagePlaceholder": "[Photo: Chemical & Liquid Tankers]",
             "label": "Explore",
@@ -861,7 +863,7 @@
           },
           {
             "heading": "Cargo Trucks & Trailers",
-            "image": null,
+            "image": "/fleet-and-visiblity/fleet-and-equipment/section-3-image-3.png",
             "imageAlt": "Cargo Trucks & Trailers",
             "imagePlaceholder": "[Photo: Cargo Trucks & Trailers]",
             "label": "Explore",
@@ -869,7 +871,7 @@
           },
           {
             "heading": "Containerized Vehicles",
-            "image": null,
+            "image": "/fleet-and-visiblity/fleet-and-equipment/section-3-image-4.png",
             "imageAlt": "Containerized Vehicles",
             "imagePlaceholder": "[Photo: Containerized Vehicles]",
             "label": "Explore",
@@ -877,7 +879,7 @@
           },
           {
             "heading": "Flatbed Equipment",
-            "image": null,
+            "image": "/fleet-and-visiblity/fleet-and-equipment/section-3-image-5.png",
             "imageAlt": "Flatbed Equipment",
             "imagePlaceholder": "[Photo: Flatbed Equipment]",
             "label": "Explore",
@@ -885,7 +887,7 @@
           },
           {
             "heading": "Heavy & Project Equipment",
-            "image": null,
+            "image": "/fleet-and-visiblity/fleet-and-equipment/section-3-image-6.png",
             "imageAlt": "Heavy & Project Equipment",
             "imagePlaceholder": "[Photo: Heavy & Project Equipment]",
             "label": "Explore",
