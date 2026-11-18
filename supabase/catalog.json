@@ -205,7 +205,7 @@
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
         },
-        "image": null,
+        "image": "/hsse/section-1-main-image.png",
         "imageAlt": "LMI driver beside a tanker",
         "imagePlaceholder": "[Photo: LMI driver beside a tanker]"
       },
@@ -265,7 +265,7 @@
       "sectionFour": {
         "eyebrow": "Before dispatch",
         "heading": "Vehicle Readiness & Maintenance",
-        "image": null,
+        "image": "/hsse/section-4-main-image.png",
         "imageAlt": "Vehicle inspection in progress",
         "imagePlaceholder": "[Photo: vehicle inspection in progress]",
         "items": [
@@ -338,7 +338,7 @@
           "Financial assistance: help with costs while the employee recovers or the situation is resolved",
           "Legal assistance: guidance and support through any formal or legal process that follows"
         ],
-        "image": null,
+        "image": "/hsse/section-7-main-image.png",
         "imageAlt": "LMI team with safety supervisors",
         "imagePlaceholder": "[Photo: LMI team with safety supervisors]"
       },
@@ -349,19 +349,19 @@
           {
             "heading": "ISO 9001",
             "description": "Operations follow ISO 9001 certification standards. [Confirm certificate holder and year]",
-            "image": null,
+            "image": "/hsse/award-1.png",
             "imagePlaceholder": "[Award image 1]"
           },
           {
             "heading": "BP Pakistan E&P",
             "description": "Recognised for safety performance (2001).",
-            "image": null,
+            "image": "/hsse/award-2.png",
             "imagePlaceholder": "[Award image 2]"
           },
           {
             "heading": "Road safety award",
             "description": "Awarded for road safety participation. [Add year and awarding body]",
-            "image": null,
+            "image": "/hsse/award-3.png",
             "imagePlaceholder": "[Award image 3]"
           }
         ],

@@ -160,3 +160,7 @@ Run `supabase/migrations/202611180006_industry_images.sql`, then rebuild the web
 ## Fleet & Visibility images
 
 Run `supabase/migrations/202611180007_fleet_images.sql`, then rebuild the website. It connects all 15 supplied images on Fleet & Equipment, Nationwide Network and Shipment Tracking. It also adds editable `image`/`imageAlt` fields to the tracking section-three map panel. Text, visibility and cleared card objects are preserved; reruns are safe. `supabase/fleet-image-map.json` lists mappings, using the exact supplied folder spelling `fleet-and-visiblity`. Fresh installs use the updated seed.
+
+## HSSE images
+
+Run `supabase/migrations/202611180008_hsse_images.sql` after the earlier three-award migration, then rebuild the website. It connects the six supplied HSSE images: section-one, section-four and section-seven photos plus three awards in existing card order. Text, visibility and cleared award objects are preserved; reruns are safe. `supabase/hsse-image-map.json` lists mappings. Fresh installs use the updated seed.

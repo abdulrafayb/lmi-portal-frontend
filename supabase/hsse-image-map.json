@@ -1,0 +1,56 @@
+[
+  {
+    "page": "hsse",
+    "section": "sectionEight",
+    "path": [
+      "awards",
+      "0",
+      "image"
+    ],
+    "image": "/hsse/award-1.png"
+  },
+  {
+    "page": "hsse",
+    "section": "sectionEight",
+    "path": [
+      "awards",
+      "1",
+      "image"
+    ],
+    "image": "/hsse/award-2.png"
+  },
+  {
+    "page": "hsse",
+    "section": "sectionEight",
+    "path": [
+      "awards",
+      "2",
+      "image"
+    ],
+    "image": "/hsse/award-3.png"
+  },
+  {
+    "page": "hsse",
+    "section": "sectionOne",
+    "path": [
+      "image"
+    ],
+    "image": "/hsse/section-1-main-image.png"
+  },
+  {
+    "page": "hsse",
+    "section": "sectionFour",
+    "path": [
+      "image"
+    ],
+    "image": "/hsse/section-4-main-image.png"
+  },
+  {
+    "page": "hsse",
+    "section": "sectionSeven",
+    "path": [
+      "image"
+    ],
+    "image": "/hsse/section-7-main-image.png"
+  }
+]

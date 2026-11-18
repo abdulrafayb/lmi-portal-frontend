@@ -117,3 +117,8 @@ for file in supabase/tests/fleet-images.sql supabase/migrations/202611180007_fle
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Fleet images map correctly, preserve copy/visibility and cleared cards, support tracking image editing, and audit once.'
+
+for file in supabase/tests/hsse-images.sql supabase/migrations/202611180008_hsse_images.sql supabase/migrations/202611180008_hsse_images.sql supabase/tests/verify-hsse-images.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'HSSE images map correctly, preserve copy/visibility and cleared awards, and audit once.'
