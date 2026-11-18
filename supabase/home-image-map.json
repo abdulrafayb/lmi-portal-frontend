@@ -32,5 +32,12 @@
     "fleet-visibility--fleet-equipment",
     "fleet-visibility--nationwide-network",
     "fleet-visibility--shipment-tracking-operational-visibility"
+  ],
+  "trustLogos": [
+    "/home/shell-logo.png",
+    "/home/pso_logo.png",
+    "/home/caltex-logo.png",
+    "/home/engro-logo.png",
+    "/home/nlc_logo.png"
   ]
 }

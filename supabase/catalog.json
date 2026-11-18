@@ -1028,23 +1028,23 @@
         "logos": [
           {
             "name": "Shell Pakistan",
-            "src": null
+            "src": "/home/shell-logo.png"
           },
           {
             "name": "PSO",
-            "src": null
+            "src": "/home/pso_logo.png"
           },
           {
             "name": "Caltex",
-            "src": null
+            "src": "/home/caltex-logo.png"
           },
           {
             "name": "Engro",
-            "src": null
+            "src": "/home/engro-logo.png"
           },
           {
             "name": "NLC",
-            "src": null
+            "src": "/home/nlc_logo.png"
           }
         ]
       },

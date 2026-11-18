@@ -87,3 +87,8 @@ for file in supabase/tests/home-manufacturing-image.sql supabase/migrations/2026
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Home manufacturing photo migration preserves copy/visibility, updates the correct slot and is idempotent.'
+
+for file in supabase/tests/home-trust-logos.sql supabase/migrations/202611180002_home_trust_logos.sql supabase/migrations/202611180002_home_trust_logos.sql supabase/tests/verify-home-trust-logos.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Home trust logos preserve edited names/visibility; common image extensions pass CMS validation.'

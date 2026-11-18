@@ -1,3 +1,4 @@
+import { imagePreviewSource } from "./imagePaths";
 import { useId, useState } from "react";
 import { isHeading, headingText, legacyHeadingValue } from "./headings";
 import { WEBSITE } from "./api";
@@ -8,15 +9,12 @@ export const label = (value) =>
     .replace(/^./, (c) => c.toUpperCase());
 function ImagePreview({ value }) {
   const [failed, setFailed] = useState(false);
-  return value && !failed ? (
+  const src = imagePreviewSource(value, WEBSITE);
+  return src && !failed ? (
     <img
       className="image-preview"
       alt="Image preview"
-      src={
-        /^https?:/.test(value)
-          ? value
-          : WEBSITE + value.replace(/^\/public\//, "/")
-      }
+      src={src}
       onError={() => setFailed(true)}
     />
   ) : (
@@ -138,7 +136,7 @@ export default function Fields({
       )}
       <small className="hint">
         {image
-          ? "Use /image-name.png for a file already deployed in the website’s public folder."
+          ? "Use a deployed website path such as /home/logo.webp or /public/home/logo.jpg. JPG/JPEG, PNG, WebP, GIF, AVIF, SVG, BMP and other browser-supported formats work; use the exact filename and extension."
           : !number
             ? "Leave blank to omit this content."
             : null}

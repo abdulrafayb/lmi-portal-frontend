@@ -134,3 +134,9 @@ To hide an individual client card, clear **both name and image** for that fixed 
 ## Home Manufacturing & Industrial image
 
 The missing third Home industry photo is now `/home/section-8-image-3.png`. For an existing database, run the portal migration `supabase/migrations/202611180001_home_manufacturing_image.sql`, then rebuild the website. It changes only that image path, preserves edited text and section visibility, and audits the change. It is safe to rerun and does not recreate a missing/null/empty third slot. Fresh installs receive the image path through the updated seed. Earlier migration instructions describing the photo as missing applied before this asset was supplied.
+
+## Home trust logos and image formats
+
+The Home section-two logo strip now uses the supplied Shell, PSO, Caltex, Engro and NLC images from `public/home`. Existing databases: run the portal migration `supabase/migrations/202611180002_home_trust_logos.sql`, then rebuild the website. It changes only existing logo image paths, preserves edited names and section visibility, and is safe to rerun. Fresh installs receive the paths through the seed.
+
+Images are URLs/paths, not uploads. For a deployed file `public/home/logo.webp`, enter `/home/logo.webp` (or `/public/home/logo.webp`, which is normalized). JPG/JPEG, PNG, WebP, GIF, AVIF, SVG, BMP and other browser-supported formats work in both the portal preview and website; there is no PNG-only extension rule. Exact filenames, capitalization and extensions must match deployed files. Commit/push the file to the website repository, update its path in the portal, publish, then wait for the website rebuild. New files or changed paths require a successful deployment to appear. Convert formats that web browsers cannot decode, such as TIFF/HEIC, to a supported web format first. Local static preview now serves the corresponding image MIME types too.
