@@ -1,0 +1,56 @@
+[
+  {
+    "page": "insights",
+    "section": "sectionOne",
+    "path": [
+      "image"
+    ],
+    "image": "/insights/section-1-main-image.png"
+  },
+  {
+    "page": "insights",
+    "section": "sectionTwo",
+    "path": [
+      "cards",
+      "0",
+      "image"
+    ],
+    "image": "/insights/section-2-image-1.png"
+  },
+  {
+    "page": "insights",
+    "section": "sectionTwo",
+    "path": [
+      "cards",
+      "1",
+      "image"
+    ],
+    "image": "/insights/section-2-image-2.png"
+  },
+  {
+    "page": "insights",
+    "section": "sectionTwo",
+    "path": [
+      "cards",
+      "2",
+      "image"
+    ],
+    "image": "/insights/section-2-image-3.png"
+  },
+  {
+    "page": "insights",
+    "section": "sectionThree",
+    "path": [
+      "image"
+    ],
+    "image": "/insights/section-3-main-image.png"
+  },
+  {
+    "page": "contact-us",
+    "section": "sectionOne",
+    "path": [
+      "image"
+    ],
+    "image": "/contact-us/section-1-main-image.png"
+  }
+]

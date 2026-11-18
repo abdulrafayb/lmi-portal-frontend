@@ -12,7 +12,7 @@
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
         },
-        "image": null,
+        "image": "/insights/section-1-main-image.png",
         "imageAlt": "LMI trucks at a terminal",
         "imagePlaceholder": "[Photo: LMI trucks at a terminal]"
       },
@@ -27,7 +27,7 @@
             "service": "Service: Road Freight",
             "description": "Urea moved from seaports to destinations across Pakistan for a major fertilizer producer.",
             "note": "[Confirm: challenge, approach and verified result]",
-            "image": null,
+            "image": "/insights/section-2-image-1.png",
             "imagePlaceholder": "[Photo: case study 1]",
             "label": "Read case study",
             "path": "#case-study-approach"
@@ -39,7 +39,7 @@
             "service": "Service: Project transport",
             "description": "Transport contractor to an international engineering contractor on a highway contract in D.I. Khan.",
             "note": "[Confirm: challenge, approach and verified result]",
-            "image": null,
+            "image": "/insights/section-2-image-2.png",
             "imagePlaceholder": "[Photo: case study 2]",
             "label": "Read case study",
             "path": "#case-study-approach"
@@ -51,7 +51,7 @@
             "service": "Service: Petroleum Transportation",
             "description": "Bitumen moved from a Karachi refinery to road-construction sites for an international contractor.",
             "note": "[Confirm: challenge, approach and verified result]",
-            "image": null,
+            "image": "/insights/section-2-image-3.png",
             "imagePlaceholder": "[Photo: case study 3]",
             "label": "Read case study",
             "path": "#case-study-approach"
@@ -63,7 +63,7 @@
         "quote": "“Our customers trust us with cargo that cannot afford to be late or unsafe. That is why every journey starts with the right vehicle, a trained driver and safety as a first priority. It is how we have built long relationships, and how we intend to keep them.”",
         "name": "Brig. (R) Shahid Mahmood",
         "role": "CEO, Logistics Management International",
-        "image": null,
+        "image": "/insights/section-3-main-image.png",
         "imagePlaceholder": "[Portrait: Brig. (R) Shahid Mahmood]"
       },
       "sectionFour": {
@@ -1358,7 +1358,7 @@
           "label": "Get a Quote",
           "href": "#quote-form"
         },
-        "image": null,
+        "image": "/contact-us/section-1-main-image.png",
         "imageAlt": "LMI truck and team at a terminal",
         "imagePlaceholder": "[Photo: LMI truck and team at a terminal]"
       },

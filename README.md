@@ -164,3 +164,7 @@ Run `supabase/migrations/202611180007_fleet_images.sql`, then rebuild the websit
 ## HSSE images
 
 Run `supabase/migrations/202611180008_hsse_images.sql` after the earlier three-award migration, then rebuild the website. It connects the six supplied HSSE images: section-one, section-four and section-seven photos plus three awards in existing card order. Text, visibility and cleared award objects are preserved; reruns are safe. `supabase/hsse-image-map.json` lists mappings. Fresh installs use the updated seed.
+
+## Insights and Contact Us images
+
+Run `supabase/migrations/202611180009_insights_contact_images.sql`, then rebuild the website. It connects six supplied images: Insights hero, three cards and leadership portrait, plus the Contact Us hero. Text, visibility and cleared card objects are preserved; reruns are safe. `supabase/insights-contact-image-map.json` lists mappings. Fresh installs use the updated seed.
