@@ -144,3 +144,7 @@ Images are URLs/paths, not uploads. For a deployed file `public/home/logo.webp`,
 ## Company page images
 
 Run `supabase/migrations/202611180003_company_images.sql` after the earlier leadership team migration, then rebuild the website. It connects all 18 supplied About Us, Leadership and Certifications images, preserves text/visibility, skips missing or cleared cards, and is safe to rerun. Portraits and certificates follow the existing card order. `supabase/company-image-map.json` lists every mapping; fresh installs use the updated seed.
+
+## Service page images
+
+Run `supabase/migrations/202611180004_service_images.sql` after the service trust cards migration, then rebuild the website. This connects all 54 supplied service images, including the overview hero. Numbered logos follow existing client-card order. Text/visibility and missing or cleared cards are preserved; reruns are safe. `supabase/service-image-map.json` lists the mappings, and fresh installs receive the updated seed.

@@ -3443,7 +3443,7 @@
           "label": "Explore Our Services",
           "path": "#services"
         },
-        "image": null,
+        "image": "/services/overview/section-1-main-image.png",
         "imageAlt": "LMI trucks, tanker and flatbed together",
         "imagePlaceholder": "[Photo: LMI trucks, tanker and flatbed together]"
       },
@@ -3622,7 +3622,7 @@
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
         },
-        "image": null,
+        "image": "/services/road-freight-transportation/section-1-main-image.png",
         "imageAlt": "LMI truck on a Pakistani highway",
         "imagePlaceholder": "[Photo: LMI truck on a Pakistani highway]"
       },
@@ -3767,37 +3767,37 @@
           {
             "id": "novatex",
             "name": "Novatex",
-            "image": null,
+            "image": "/services/road-freight-transportation/logo-1.png",
             "placeholder": false
           },
           {
             "id": "roshan-packages",
             "name": "Roshan Packages",
-            "image": null,
+            "image": "/services/road-freight-transportation/logo-2.png",
             "placeholder": false
           },
           {
             "id": "bsp",
             "name": "BSP",
-            "image": null,
+            "image": "/services/road-freight-transportation/logo-3.png",
             "placeholder": false
           },
           {
             "id": "interloop",
             "name": "Interloop",
-            "image": null,
+            "image": "/services/road-freight-transportation/logo-4.png",
             "placeholder": false
           },
           {
             "id": "soya-supreme",
             "name": "Soya Supreme",
-            "image": null,
+            "image": "/services/road-freight-transportation/logo-5.png",
             "placeholder": false
           },
           {
             "id": "apag",
             "name": "APAG",
-            "image": null,
+            "image": "/services/road-freight-transportation/logo-6.png",
             "placeholder": false
           }
         ],
@@ -3851,7 +3851,7 @@
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
         },
-        "image": null,
+        "image": "/services/petroleum-transportation/section-1-main-image.png",
         "imageAlt": "LMI petroleum tanker on the road",
         "imagePlaceholder": "[Photo: LMI petroleum tanker on the road]"
       },
@@ -3921,7 +3921,7 @@
           "path": "/hsse"
         },
         "panelHeading": "Prepared before it leaves",
-        "image": null,
+        "image": "/services/petroleum-transportation/section-4-main-image.png",
         "imageAlt": "LMI petroleum tanker ready for dispatch",
         "imagePlaceholder": "[Photo: LMI petroleum tanker]",
         "features": [
@@ -3966,31 +3966,31 @@
           {
             "id": "0",
             "name": "Shell",
-            "image": null,
+            "image": "/services/petroleum-transportation/logo-1.png",
             "placeholder": false
           },
           {
             "id": "1",
             "name": "PSO",
-            "image": null,
+            "image": "/services/petroleum-transportation/logo-2.png",
             "placeholder": false
           },
           {
             "id": "2",
             "name": "Caltex",
-            "image": null,
+            "image": "/services/petroleum-transportation/logo-3.png",
             "placeholder": false
           },
           {
             "id": "3",
             "name": "BP Pakistan",
-            "image": null,
+            "image": "/services/petroleum-transportation/logo-4.png",
             "placeholder": false
           },
           {
             "id": "4",
             "name": "Cnergyico",
-            "image": null,
+            "image": "/services/petroleum-transportation/logo-5.png",
             "placeholder": false
           }
         ],
@@ -4044,7 +4044,7 @@
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
         },
-        "image": null,
+        "image": "/services/chemical-and-liquid-cargo-transportation/section-1-main-image.png",
         "imageAlt": "LMI chemical tanker at an industrial site",
         "imagePlaceholder": "[Photo: LMI chemical tanker at an industrial site]"
       },
@@ -4141,7 +4141,7 @@
           }
         ],
         "panelHeading": "Matched to the product",
-        "image": null,
+        "image": "/services/chemical-and-liquid-cargo-transportation/section-4-main-image.png",
         "imageAlt": "Chemical tanker matched to the cargo",
         "imagePlaceholder": "[Photo: chemical tanker]",
         "features": [
@@ -4159,31 +4159,31 @@
           {
             "id": "engro",
             "name": "Engro",
-            "image": null,
+            "image": "/services/chemical-and-liquid-cargo-transportation/logo-1.png",
             "placeholder": false
           },
           {
             "id": "nfml",
             "name": "NFML",
-            "image": null,
+            "image": "/services/chemical-and-liquid-cargo-transportation/logo-2.png",
             "placeholder": false
           },
           {
             "id": "novatex",
             "name": "Novatex",
-            "image": null,
+            "image": "/services/chemical-and-liquid-cargo-transportation/logo-3.png",
             "placeholder": false
           },
           {
             "id": "cnergyico",
             "name": "Cnergyico",
-            "image": null,
+            "image": "/services/chemical-and-liquid-cargo-transportation/logo-4.png",
             "placeholder": false
           },
           {
             "id": "apag",
             "name": "APAG",
-            "image": null,
+            "image": "/services/chemical-and-liquid-cargo-transportation/logo-5.png",
             "placeholder": false
           }
         ],
@@ -4247,7 +4247,7 @@
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
         },
-        "image": null,
+        "image": "/services/dry-cargo-transportation/section-1-main-image.png",
         "imageAlt": "LMI dry cargo truck at a loading dock",
         "imagePlaceholder": "[Photo: LMI dry cargo truck at a loading dock]"
       },
@@ -4322,7 +4322,7 @@
           "path": "/hsse"
         },
         "panelHeading": "Protected from loading to delivery",
-        "image": null,
+        "image": "/services/dry-cargo-transportation/section-4-main-image.png",
         "imageAlt": "LMI truck carrying protected dry cargo",
         "imagePlaceholder": "[Photo: LMI dry cargo truck]",
         "features": [
@@ -4366,37 +4366,37 @@
           {
             "id": "novatex",
             "name": "Novatex",
-            "image": null,
+            "image": "/services/dry-cargo-transportation/logo-1.png",
             "placeholder": false
           },
           {
             "id": "roshan-packages",
             "name": "Roshan Packages",
-            "image": null,
+            "image": "/services/dry-cargo-transportation/logo-2.png",
             "placeholder": false
           },
           {
             "id": "bsp",
             "name": "BSP",
-            "image": null,
+            "image": "/services/dry-cargo-transportation/logo-3.png",
             "placeholder": false
           },
           {
             "id": "interloop",
             "name": "Interloop",
-            "image": null,
+            "image": "/services/dry-cargo-transportation/logo-4.png",
             "placeholder": false
           },
           {
             "id": "soya-supreme",
             "name": "Soya Supreme",
-            "image": null,
+            "image": "/services/dry-cargo-transportation/logo-5.png",
             "placeholder": false
           },
           {
             "id": "apag",
             "name": "APAG",
-            "image": null,
+            "image": "/services/dry-cargo-transportation/logo-6.png",
             "placeholder": false
           }
         ],
@@ -4450,7 +4450,7 @@
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
         },
-        "image": null,
+        "image": "/services/containerized-transportation/section-1-main-image.png",
         "imageAlt": "LMI truck carrying a container",
         "imagePlaceholder": "[Photo: LMI truck carrying a container]"
       },
@@ -4547,7 +4547,7 @@
           }
         ],
         "panelHeading": "Port to plant",
-        "image": null,
+        "image": "/services/containerized-transportation/section-4-main-image.png",
         "imageAlt": "LMI truck carrying a container",
         "imagePlaceholder": "[Photo: LMI truck carrying a container]",
         "features": [
@@ -4564,25 +4564,25 @@
             "id": "1",
             "placeholder": "[Client logo: confirm clients for this service]",
             "name": "[Client logo: confirm clients for this service]",
-            "image": null
+            "image": "/services/containerized-transportation/logo-1.png"
           },
           {
             "id": "2",
             "placeholder": "[Client logo: confirm clients for this service]",
             "name": "[Client logo: confirm clients for this service]",
-            "image": null
+            "image": "/services/containerized-transportation/logo-2.png"
           },
           {
             "id": "3",
             "placeholder": "[Client logo: confirm clients for this service]",
             "name": "[Client logo: confirm clients for this service]",
-            "image": null
+            "image": "/services/containerized-transportation/logo-3.png"
           },
           {
             "id": "4",
             "placeholder": "[Client logo: confirm clients for this service]",
             "name": "[Client logo: confirm clients for this service]",
-            "image": null
+            "image": "/services/containerized-transportation/logo-4.png"
           }
         ],
         "testimonial": {
@@ -4636,7 +4636,7 @@
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
         },
-        "image": null,
+        "image": "/services/full-truckload/section-1-main-image.png",
         "imageAlt": "LMI truck loaded for a full-truckload shipment",
         "imagePlaceholder": "[Photo: LMI truck loaded for a full-truckload shipment]"
       },
@@ -4707,7 +4707,7 @@
         },
         "panelHeading": "Dedicated capacity",
         "panelDescription": "One truck. One load. One destination.",
-        "image": null,
+        "image": "/services/full-truckload/section-4-main-image.png",
         "imageAlt": "Dedicated LMI truck transporting a full load",
         "imagePlaceholder": "[Photo: LMI full truckload vehicle]",
         "features": ["No shared load", "Direct route", "Your schedule"],
@@ -4747,25 +4747,25 @@
             "id": "1",
             "placeholder": "[Client logo: confirm clients for this service]",
             "name": "[Client logo: confirm clients for this service]",
-            "image": null
+            "image": "/services/full-truckload/logo-1.png"
           },
           {
             "id": "2",
             "placeholder": "[Client logo: confirm clients for this service]",
             "name": "[Client logo: confirm clients for this service]",
-            "image": null
+            "image": "/services/full-truckload/logo-2.png"
           },
           {
             "id": "3",
             "placeholder": "[Client logo: confirm clients for this service]",
             "name": "[Client logo: confirm clients for this service]",
-            "image": null
+            "image": "/services/full-truckload/logo-3.png"
           },
           {
             "id": "4",
             "placeholder": "[Client logo: confirm clients for this service]",
             "name": "[Client logo: confirm clients for this service]",
-            "image": null
+            "image": "/services/full-truckload/logo-4.png"
           }
         ],
         "testimonial": {
@@ -4819,7 +4819,7 @@
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
         },
-        "image": null,
+        "image": "/services/flatbed-transportation/section-1-main-image.png",
         "imageAlt": "LMI flatbed carrying steel or machinery",
         "imagePlaceholder": "[Photo: LMI flatbed carrying steel or machinery]"
       },
@@ -4889,7 +4889,7 @@
           "path": "/hsse"
         },
         "panelHeading": "Open deck, secured load",
-        "image": null,
+        "image": "/services/flatbed-transportation/section-4-main-image.png",
         "imageAlt": "LMI flatbed truck carrying secured cargo",
         "imagePlaceholder": "[Photo: LMI flatbed truck]",
         "features": [
@@ -4933,25 +4933,25 @@
             "id": "1",
             "placeholder": "[Client logo: confirm clients for this service]",
             "name": "[Client logo: confirm clients for this service]",
-            "image": null
+            "image": "/services/flatbed-transportation/logo-1.png"
           },
           {
             "id": "2",
             "placeholder": "[Client logo: confirm clients for this service]",
             "name": "[Client logo: confirm clients for this service]",
-            "image": null
+            "image": "/services/flatbed-transportation/logo-2.png"
           },
           {
             "id": "3",
             "placeholder": "[Client logo: confirm clients for this service]",
             "name": "[Client logo: confirm clients for this service]",
-            "image": null
+            "image": "/services/flatbed-transportation/logo-3.png"
           },
           {
             "id": "4",
             "placeholder": "[Client logo: confirm clients for this service]",
             "name": "[Client logo: confirm clients for this service]",
-            "image": null
+            "image": "/services/flatbed-transportation/logo-4.png"
           }
         ],
         "testimonial": {
@@ -5005,7 +5005,7 @@
           "label": "Discuss Your Requirement",
           "path": "/contact-us"
         },
-        "image": null,
+        "image": "/services/heavy-and-project-cargo/section-1-main-image.png",
         "imageAlt": "LMI heavy-haul trailer carrying industrial equipment",
         "imagePlaceholder": "[Photo: LMI heavy-haul trailer carrying industrial equipment]"
       },
@@ -5075,7 +5075,7 @@
           "path": "/hsse"
         },
         "panelHeading": "Planned before it moves",
-        "image": null,
+        "image": "/services/heavy-and-project-cargo/section-4-main-image.png",
         "imageAlt": "LMI truck transporting heavy project cargo",
         "imagePlaceholder": "[Photo: LMI heavy and project cargo truck]",
         "features": [
@@ -5119,25 +5119,25 @@
           {
             "id": "0",
             "name": "CPECC",
-            "image": null,
+            "image": "/services/heavy-and-project-cargo/logo-1.png",
             "placeholder": false
           },
           {
             "id": "1",
             "name": "China Road & Bridge",
-            "image": null,
+            "image": "/services/heavy-and-project-cargo/logo-2.png",
             "placeholder": false
           },
           {
             "id": "2",
             "name": "Joannou & Paraskevaides",
-            "image": null,
+            "image": "/services/heavy-and-project-cargo/logo-3.png",
             "placeholder": false
           },
           {
             "id": "3",
             "name": "China Liaoning",
-            "image": null,
+            "image": "/services/heavy-and-project-cargo/logo-4.png",
             "placeholder": false
           }
         ],
