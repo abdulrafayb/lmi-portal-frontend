@@ -1,0 +1,174 @@
+[
+  {
+    "page": "company--about-us",
+    "section": "sectionOne",
+    "path": [
+      "image"
+    ],
+    "image": "/our-company/about-us/section-1-main-image.png"
+  },
+  {
+    "page": "company--leadership",
+    "section": "sectionOne",
+    "path": [
+      "image"
+    ],
+    "image": "/our-company/leadership/section-1-main-image.png"
+  },
+  {
+    "page": "company--certifications-recognitions",
+    "section": "sectionOne",
+    "path": [
+      "image"
+    ],
+    "image": "/our-company/certifications-and-recognitions/section-1-main-image.png"
+  },
+  {
+    "page": "company--about-us",
+    "section": "sectionFive",
+    "path": [
+      "image"
+    ],
+    "image": "/our-company/about-us/section-5-main-image.png"
+  },
+  {
+    "page": "company--leadership",
+    "section": "sectionFour",
+    "path": [
+      "members",
+      "0",
+      "image"
+    ],
+    "image": "/our-company/leadership/person-1.png"
+  },
+  {
+    "page": "company--leadership",
+    "section": "sectionFour",
+    "path": [
+      "members",
+      "1",
+      "image"
+    ],
+    "image": "/our-company/leadership/person-2.png"
+  },
+  {
+    "page": "company--leadership",
+    "section": "sectionFour",
+    "path": [
+      "members",
+      "2",
+      "image"
+    ],
+    "image": "/our-company/leadership/person-3.png"
+  },
+  {
+    "page": "company--leadership",
+    "section": "sectionFour",
+    "path": [
+      "members",
+      "3",
+      "image"
+    ],
+    "image": "/our-company/leadership/person-4.png"
+  },
+  {
+    "page": "company--leadership",
+    "section": "sectionFour",
+    "path": [
+      "members",
+      "4",
+      "image"
+    ],
+    "image": "/our-company/leadership/person-5.png"
+  },
+  {
+    "page": "company--leadership",
+    "section": "sectionFour",
+    "path": [
+      "members",
+      "5",
+      "image"
+    ],
+    "image": "/our-company/leadership/person-6.png"
+  },
+  {
+    "page": "company--certifications-recognitions",
+    "section": "sectionThree",
+    "path": [
+      "credentials",
+      "0",
+      "image"
+    ],
+    "image": "/our-company/certifications-and-recognitions/certificate-1.png"
+  },
+  {
+    "page": "company--certifications-recognitions",
+    "section": "sectionThree",
+    "path": [
+      "credentials",
+      "1",
+      "image"
+    ],
+    "image": "/our-company/certifications-and-recognitions/certificate-2.png"
+  },
+  {
+    "page": "company--certifications-recognitions",
+    "section": "sectionThree",
+    "path": [
+      "credentials",
+      "2",
+      "image"
+    ],
+    "image": "/our-company/certifications-and-recognitions/certificate-3.png"
+  },
+  {
+    "page": "company--certifications-recognitions",
+    "section": "sectionThree",
+    "path": [
+      "credentials",
+      "3",
+      "image"
+    ],
+    "image": "/our-company/certifications-and-recognitions/certificate-4.png"
+  },
+  {
+    "page": "company--certifications-recognitions",
+    "section": "sectionThree",
+    "path": [
+      "credentials",
+      "4",
+      "image"
+    ],
+    "image": "/our-company/certifications-and-recognitions/certificate-5.png"
+  },
+  {
+    "page": "company--certifications-recognitions",
+    "section": "sectionThree",
+    "path": [
+      "credentials",
+      "5",
+      "image"
+    ],
+    "image": "/our-company/certifications-and-recognitions/certificate-6.png"
+  },
+  {
+    "page": "company--certifications-recognitions",
+    "section": "sectionThree",
+    "path": [
+      "credentials",
+      "6",
+      "image"
+    ],
+    "image": "/our-company/certifications-and-recognitions/certificate-7.png"
+  },
+  {
+    "page": "company--certifications-recognitions",
+    "section": "sectionThree",
+    "path": [
+      "credentials",
+      "7",
+      "image"
+    ],
+    "image": "/our-company/certifications-and-recognitions/certificate-8.png"
+  }
+]

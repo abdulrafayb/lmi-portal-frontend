@@ -92,3 +92,8 @@ for file in supabase/tests/home-trust-logos.sql supabase/migrations/202611180002
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Home trust logos preserve edited names/visibility; common image extensions pass CMS validation.'
+
+for file in supabase/tests/company-images.sql supabase/migrations/202611180003_company_images.sql supabase/migrations/202611180003_company_images.sql supabase/tests/verify-company-images.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Company images map correctly, preserve copy/visibility and cleared cards, and audit once.'
