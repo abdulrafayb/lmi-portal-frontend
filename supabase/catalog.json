@@ -10,7 +10,7 @@
         "description": "Real movements and practical guidance from LMI’s decades of road transportation in Pakistan.",
         "action": {
           "label": "Discuss Your Requirement",
-          "path": "/contact-us"
+          "path": "/case-studies"
         },
         "image": "/insights/section-1-main-image.png",
         "imageAlt": "LMI trucks at a terminal",
@@ -30,7 +30,7 @@
             "image": "/insights/section-2-image-1.png",
             "imagePlaceholder": "[Photo: case study 1]",
             "label": "Read case study",
-            "path": "#case-study-approach"
+            "path": "/case-studies/coordinating-a-factory-delivery"
           },
           {
             "eyebrow": "Case study 02",
@@ -42,7 +42,7 @@
             "image": "/insights/section-2-image-2.png",
             "imagePlaceholder": "[Photo: case study 2]",
             "label": "Read case study",
-            "path": "#case-study-approach"
+            "path": "/case-studies/planning-an-open-deck-movement"
           },
           {
             "eyebrow": "Case study 03",
@@ -54,7 +54,7 @@
             "image": "/insights/section-2-image-3.png",
             "imagePlaceholder": "[Photo: case study 3]",
             "label": "Read case study",
-            "path": "#case-study-approach"
+            "path": "/case-studies/organizing-a-container-collection"
           }
         ]
       },
@@ -1321,7 +1321,7 @@
           ],
           "action": {
             "label": "View all insights",
-            "path": "/insights"
+            "path": "/articles"
           }
         },
         "caseStudies": {
@@ -1331,7 +1331,7 @@
           "stages": ["Challenge", "Approach", "Delivery", "Result"],
           "action": {
             "label": "View case studies",
-            "path": "/insights#case-studies"
+            "path": "/case-studies"
           }
         }
       },

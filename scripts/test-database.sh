@@ -127,3 +127,8 @@ for file in supabase/tests/insights-contact-images.sql supabase/migrations/20261
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Insights and Contact images map correctly, preserve copy/visibility and cleared cards, and audit once.'
+
+for file in supabase/tests/storage-shim.sql supabase/tests/publications-legacy.sql supabase/migrations/202611180010_publications_and_media.sql supabase/migrations/202611180010_publications_and_media.sql supabase/tests/publications.sql supabase/tests/publications-edits.sql supabase/migrations/202611180010_publications_and_media.sql supabase/tests/verify-publications-edits.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Publications, drafts, unpublishing, stale revisions, audit, rich text validation and storage admin policies passed.'

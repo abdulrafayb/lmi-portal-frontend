@@ -92,3 +92,57 @@ export async function publishSection(id, key, data, enabled, revision) {
 }
 export const getHistory = (page, id, signal) =>
   rpc("cms_admin_history", { p_page: page, p_page_id: id || null }, signal);
+
+export async function uploadImage(file) {
+  const types = {
+    "image/jpeg": "jpg",
+    "image/png": "png",
+    "image/webp": "webp",
+    "image/gif": "gif",
+    "image/avif": "avif",
+  };
+  const extension = types[file.type];
+  if (!extension || !file.size || file.size > 10 * 1024 * 1024)
+    throw new Error("Choose a JPG, PNG, WebP, GIF or AVIF image up to 10 MB.");
+  const path = `images/${crypto.randomUUID()}.${extension}`;
+  const { error } = await configured()
+    .storage.from("cms-media")
+    .upload(path, file, { contentType: file.type, upsert: false });
+  if (error) throw new Error(error.message);
+  return configured().storage.from("cms-media").getPublicUrl(path).data
+    .publicUrl;
+}
+export async function getPosts() {
+  const { data, error } = await configured()
+    .from("cms_posts")
+    .select("*")
+    .order("updated_at", { ascending: false });
+  if (error) throw new Error(error.message);
+  return data;
+}
+export async function savePost(data, id, revision) {
+  const saved = await rpc("cms_save_post", {
+    p_data: data,
+    p_id: id || null,
+    p_expected_revision: revision || 0,
+  });
+  try {
+    await requestWebsiteBuild();
+    return {
+      ...saved,
+      deploymentMessage:
+        "Saved. Website rebuild requested; changes appear after deployment.",
+    };
+  } catch (error) {
+    return { ...saved, deploymentMessage: error.message };
+  }
+}
+export async function getPostHistory(id) {
+  const { data, error } = await configured()
+    .from("cms_post_history")
+    .select("*")
+    .eq("post_id", id)
+    .order("revision", { ascending: false });
+  if (error) throw new Error(error.message);
+  return data;
+}

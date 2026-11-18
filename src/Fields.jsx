@@ -1,36 +1,18 @@
-import { imagePreviewSource } from "./imagePaths";
-import { useId, useState } from "react";
+import ImageField from "./ImageField";
+import { useId } from "react";
 import { isHeading, headingText, legacyHeadingValue } from "./headings";
-import { WEBSITE } from "./api";
 const fixed = new Set(["id", "icon", "variant", "type", "as", "number"]);
 export const label = (value) =>
   value
     .replace(/([a-z])([A-Z])/g, "$1 $2")
     .replace(/^./, (c) => c.toUpperCase());
-function ImagePreview({ value }) {
-  const [failed, setFailed] = useState(false);
-  const src = imagePreviewSource(value, WEBSITE);
-  return src && !failed ? (
-    <img
-      className="image-preview"
-      alt="Image preview"
-      src={src}
-      onError={() => setFailed(true)}
-    />
-  ) : (
-    <span className="hint">
-      {failed
-        ? "This image could not be loaded from the website."
-        : "No image selected."}
-    </span>
-  );
-}
 export default function Fields({
   template,
   value,
   onChange,
   name = "Content",
   fieldKey = "",
+  onBusy,
 }) {
   const id = useId();
   if (fixed.has(fieldKey)) return null;
@@ -41,6 +23,7 @@ export default function Fields({
   ) {
     return (
       <Fields
+        onBusy={onBusy}
         name={name}
         fieldKey={fieldKey}
         template=""
@@ -58,6 +41,7 @@ export default function Fields({
         {template.map((item, i) => (
           <div className="array-item" key={i}>
             <Fields
+              onBusy={onBusy}
               name={`${name} ${i + 1}`}
               template={item}
               value={value?.[i]}
@@ -80,6 +64,7 @@ export default function Fields({
         {Object.entries(template).map(([key, item]) => (
           <Fields
             key={key}
+            onBusy={onBusy}
             name={label(key)}
             fieldKey={key}
             template={item}
@@ -108,6 +93,15 @@ export default function Fields({
     !/path|href|url/i.test(fieldKey) &&
     (text.length > 100 ||
       /description|paragraph|quote|answer|note/i.test(fieldKey));
+  if (image)
+    return (
+      <ImageField
+        value={text}
+        onChange={onChange}
+        label={name}
+        onBusy={onBusy}
+      />
+    );
   return (
     <div className="field">
       <label htmlFor={id}>{name}</label>
@@ -141,7 +135,6 @@ export default function Fields({
             ? "Leave blank to omit this content."
             : null}
       </small>
-      {image && <ImagePreview key={text} value={text} />}
     </div>
   );
 }

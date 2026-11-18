@@ -1,3 +1,4 @@
+import Publications from "./PostEditor";
 import { StrictMode, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
@@ -100,6 +101,7 @@ function SectionEditor({
   const cache = useQueryClient();
   const [data, setData] = useState(() => structuredClone(entry.data));
   const [enabled, setEnabled] = useState(entry.enabled);
+  const [uploading, setUploading] = useState(false);
   const [published, setPublished] = useState("");
   const [revision, setRevision] = useState(entry.revision);
   const dirty =
@@ -124,6 +126,15 @@ function SectionEditor({
       await cache.invalidateQueries({ queryKey: ["history"] });
     },
   });
+  const publicationTeaser =
+    (pageId === "home" && sectionKey === "sectionNine") ||
+    (pageId === "insights" &&
+      ["sectionTwo", "sectionFive"].includes(sectionKey));
+  const displayedTemplate = structuredClone(template);
+  if (publicationTeaser) {
+    if (pageId === "home") delete displayedTemplate.insights.items;
+    else delete displayedTemplate.cards;
+  }
   function cancel() {
     setData(structuredClone(entry.data));
     setEnabled(entry.enabled);
@@ -163,9 +174,19 @@ function SectionEditor({
           Show section
         </label>
       </div>
-      <fieldset disabled={publish.isPending} className="content-fields">
+      {publicationTeaser && (
+        <p className="hint">
+          Cards in this section are managed under Publications. Edit the section
+          headings here.
+        </p>
+      )}
+      <fieldset
+        disabled={publish.isPending || uploading}
+        className="content-fields"
+      >
         <Fields
-          template={template}
+          onBusy={setUploading}
+          template={displayedTemplate}
           value={data}
           onChange={(next) => {
             setData(next);
@@ -188,11 +209,14 @@ function SectionEditor({
           type="button"
           className="secondary"
           onClick={cancel}
-          disabled={publish.isPending || !dirty}
+          disabled={publish.isPending || uploading || !dirty}
         >
           Cancel
         </button>
-        <button type="submit" disabled={publish.isPending || !dirty}>
+        <button
+          type="submit"
+          disabled={publish.isPending || uploading || !dirty}
+        >
           {publish.isPending ? "Publishing…" : "Publish"}
         </button>
       </div>
@@ -387,6 +411,17 @@ function Dashboard() {
             Website content
           </button>
           <button
+            className={view === "posts" ? "nav-button active" : "nav-button"}
+            onClick={() => {
+              if (leave()) {
+                setView("posts");
+                setDirty(false);
+              }
+            }}
+          >
+            Publications
+          </button>
+          <button
             className={view === "history" ? "nav-button active" : "nav-button"}
             onClick={() => {
               if (leave()) {
@@ -413,6 +448,8 @@ function Dashboard() {
         <Message error={me.error ?? pages.error} />
         {me.isError || pages.isError ? null : pages.isPending ? (
           <Loading />
+        ) : view === "posts" ? (
+          <Publications onDirty={setDirty} />
         ) : view === "history" ? (
           <History pages={pages.data ?? []} />
         ) : (
