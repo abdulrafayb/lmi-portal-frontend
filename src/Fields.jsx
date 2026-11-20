@@ -1,3 +1,11 @@
+import {
+  MAX_ITEMS,
+  fixedCollection,
+  itemTemplate,
+  blankItem,
+  templateStyles,
+} from "./collections";
+import { useState } from "react";
 import ImageField from "./ImageField";
 import { useId } from "react";
 import { isHeading, headingText, legacyHeadingValue } from "./headings";
@@ -15,6 +23,7 @@ export default function Fields({
   onBusy,
 }) {
   const id = useId();
+  const [styleIndex, setStyleIndex] = useState(0);
   if (fixed.has(fieldKey)) return null;
   if (
     isHeading(fieldKey) &&
@@ -32,31 +41,77 @@ export default function Fields({
       />
     );
   }
-  if (Array.isArray(template))
+  if (Array.isArray(template)) {
+    const locked = fixedCollection(fieldKey);
+    const items = Array.isArray(value) ? value : [];
+    const variants = templateStyles(template);
     return (
       <fieldset>
         <legend>
-          {name} <small>{template.length} fixed items</small>
+          {name} <small>{items.length} items</small>
         </legend>
-        {template.map((item, i) => (
+        {items.map((item, i) => (
           <div className="array-item" key={i}>
             <Fields
               onBusy={onBusy}
               name={`${name} ${i + 1}`}
-              template={item}
-              value={value?.[i]}
-              onChange={(next) => {
-                const arr = Array.isArray(value)
-                  ? [...value]
-                  : template.map(() => null);
-                arr[i] = next;
-                onChange(arr);
-              }}
+              template={locked ? template[i] : itemTemplate(template, item)}
+              value={item}
+              onChange={(next) =>
+                onChange(items.map((x, j) => (j === i ? next : x)))
+              }
             />
+            {!locked && (
+              <button
+                type="button"
+                className="secondary"
+                onClick={() => onChange(items.filter((_, j) => j !== i))}
+                aria-label={`Remove ${name} ${i + 1}`}
+              >
+                Remove item
+              </button>
+            )}
           </div>
         ))}
+        {!locked && template.length > 0 && (
+          <div className="collection-controls">
+            {typeof template[0] === "object" && variants.length > 1 && (
+              <label>
+                Item style
+                <select
+                  value={styleIndex}
+                  onChange={(e) => setStyleIndex(Number(e.target.value))}
+                >
+                  {variants.map((t, i) => (
+                    <option key={i} value={i}>
+                      {t.icon || t.type || t.id || `Style ${i + 1}`}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            )}
+            <button
+              type="button"
+              className="secondary"
+              disabled={items.length >= MAX_ITEMS}
+              onClick={() =>
+                onChange([
+                  ...items,
+                  blankItem(variants[styleIndex] ?? variants[0]),
+                ])
+              }
+            >
+              Add item to {name}
+            </button>
+            <small className="hint">
+              Add or remove up to {MAX_ITEMS} items. Save this section, then
+              Publish when all your changes are ready.
+            </small>
+          </div>
+        )}
       </fieldset>
     );
+  }
   if (template && typeof template === "object")
     return (
       <fieldset>

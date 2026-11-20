@@ -178,3 +178,8 @@ for file in supabase/migrations/202611200004_publication_categories.sql supabase
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Publication categories validate, save, clear, audit and preserve tags and older clients.'
+
+for file in supabase/migrations/202611200005_repeatable_content.sql supabase/migrations/202611200005_repeatable_content.sql supabase/tests/repeatable-content.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Repeatable collections add/remove/clear safely, preserve identity and headings, audit changes, limit size and reject unknown fields/icons and main-button changes.'

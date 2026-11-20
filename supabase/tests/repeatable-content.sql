@@ -1,0 +1,31 @@
+begin;
+set local role authenticated;
+select set_config('request.jwt.claims','{"sub":"11111111-1111-1111-1111-111111111111","email":"admin@example.test"}',true);
+do $$
+declare s public.cms_sections%rowtype; payload jsonb; result jsonb; added jsonb; orig_heading jsonb; count_before integer;
+begin
+ select * into s from public.cms_sections where page_id='home' and key='sectionThree';
+ payload:=s.data;count_before:=jsonb_array_length(payload->'items');added:=(payload#>'{items,0}')||'{"text":"Extra capability"}';
+ payload:=jsonb_set(payload,'{items}',(payload->'items')||jsonb_build_array(added));
+ result:=public.cms_publish_section('home','sectionThree',payload,true,s.revision);
+ if not exists(select 1 from public.cms_sections where page_id='home' and key='sectionThree' and jsonb_array_length(data->'items')=count_before+1) then raise exception 'Add not saved';end if;
+ payload:=jsonb_set(payload,'{items}',(payload->'items')-1);
+ result:=public.cms_publish_section('home','sectionThree',payload,true,(result->>'revision')::int);
+ if (select data#>>'{items,1,icon}' from public.cms_sections where page_id='home' and key='sectionThree')<>s.data#>>'{items,2,icon}' then raise exception 'Remove changed item identity';end if;
+ payload:=jsonb_set(payload,'{items}','[]');
+ result:=public.cms_publish_section('home','sectionThree',payload,true,(result->>'revision')::int);
+ if (select data->'items' from public.cms_sections where page_id='home' and key='sectionThree')<>'[]' then raise exception 'Clear not saved';end if;
+ select * into s from public.cms_sections where page_id='home' and key='sectionThree';
+ begin perform public.cms_publish_section(s.page_id,s.key,jsonb_set(s.data,'{items}',jsonb_build_array(added||'{"icon":"unsupported"}')),true,s.revision);raise exception 'Unknown icon accepted';exception when sqlstate 'PT400' then null;end;
+ begin perform public.cms_publish_section(s.page_id,s.key,jsonb_set(s.data,'{items}',jsonb_build_array(added||'{"unrecognized":"bad"}')),true,s.revision);raise exception 'Unknown fields accepted';exception when sqlstate 'PT400' then null;end;
+ begin perform public.cms_publish_section(s.page_id,s.key,jsonb_set(s.data,'{items}','[123]'),true,s.revision);raise exception 'Invalid item accepted';exception when sqlstate 'PT400' then null;end;
+ begin perform public.cms_publish_section(s.page_id,s.key,jsonb_set(s.data,'{items}',(select jsonb_agg(added) from generate_series(1,51))),true,s.revision);raise exception 'Limit bypassed';exception when sqlstate 'PT400' then null;end;
+ select * into s from public.cms_sections where page_id='home' and key='sectionOne';
+ begin perform public.cms_publish_section(s.page_id,s.key,jsonb_set(s.data,'{actions}',(s.data->'actions')||jsonb_build_array(s.data#>'{actions,0}')),true,s.revision);raise exception 'Main buttons changed';exception when sqlstate 'PT400' then null;end;
+ select * into s from public.cms_sections where page_id='home' and key='sectionSix';
+ orig_heading:=s.data->'heading';payload:=jsonb_set(s.data,'{points}',(s.data->'points')||'["One more point"]');
+ result:=public.cms_publish_section('home','sectionSix',payload,true,s.revision);
+ if (select data->'heading' from public.cms_sections where page_id='home' and key='sectionSix') is distinct from orig_heading then raise exception 'Heading changed';end if;
+ if not exists(select 1 from public.cms_history where page_id='home' and section='sectionSix' and changes::text like '%One more point%') then raise exception 'Missing audit';end if;
+end $$;
+rollback;

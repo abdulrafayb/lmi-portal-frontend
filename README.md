@@ -200,3 +200,9 @@ Website defaults remain in `lmi-website/src/index.css`; `supabase/color-defaults
 ### Publication categories
 
 Run `supabase/migrations/202611200004_publication_categories.sql` in the Supabase SQL editor after the tags and existing migrations. Publications now has an optional Category field (one category per post, up to 80 characters), separate from its type and multiple tags. Use consistent category names such as Road Transportation or HSSE. Save updates the database only; Publish rebuilds the website once with all saved changes. Existing posts keep their content/tags and start uncategorized; older clients preserve saved categories. The website builds category counts and filtered links from published posts of each type.
+
+### Repeatable cards and lists
+
+Run `supabase/migrations/202611200005_repeatable_content.sql` after the existing migrations. Website content editors can now add/remove cards, bullet lines, locations, logos, timeline entries and other repeatable content, including nested lists. Each collection supports up to 50 items. Use Item style to reuse a supported card/icon structure, then enter its content. New entries start with blank text/images rather than copying another card's content. Removing an item changes only that collection; clearing it leaves an empty list, and Add remains available.
+
+Headings, descriptions, section order, main action-button slots and contact-form fields retain their existing structure. Save updates the database only; Publish runs the build once. The migration updates validation without resetting existing content/history. The website supports variable list lengths, repeated supported icon styles and sequential process numbering. Existing homepage mobile/tablet service-preview limits remain in effect; added services can extend the desktop grid.

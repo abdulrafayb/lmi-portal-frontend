@@ -574,3 +574,11 @@ fieldset {
   display: block;
   margin-bottom: 10px;
 }
+.collection-controls {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.collection-controls button {
+  justify-self: start;
+}
