@@ -10,7 +10,11 @@ export function itemTemplate(templates, value) {
       return (
         value &&
         typeof value === "object" &&
-        Object.keys(value).every((k) => Object.hasOwn(t, k)) &&
+        Object.keys(value).every(
+          (k) =>
+            Object.hasOwn(t, k) ||
+            (k === "iconOverride" && typeof t.icon === "string"),
+        ) &&
         [...fixed].every((k) => value[k] == null || t[k] === value[k])
       );
     }) ?? templates[0]

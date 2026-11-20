@@ -183,3 +183,8 @@ for file in supabase/migrations/202611200005_repeatable_content.sql supabase/mig
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Repeatable collections add/remove/clear safely, preserve identity and headings, audit changes, limit size and reject unknown fields/icons and main-button changes.'
+
+for file in supabase/migrations/202611200006_editable_icons.sql supabase/migrations/202611200006_editable_icons.sql supabase/tests/editable-icons.sql supabase/tests/repeatable-content.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Icon overrides save, reset, audit and validate without changing semantic identities or repeatable collections.'

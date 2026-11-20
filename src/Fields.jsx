@@ -1,3 +1,4 @@
+import IconPicker from "./IconPicker";
 import {
   MAX_ITEMS,
   fixedCollection,
@@ -77,7 +78,7 @@ export default function Fields({
           <div className="collection-controls">
             {typeof template[0] === "object" && variants.length > 1 && (
               <label>
-                Item style
+                Template for new item
                 <select
                   value={styleIndex}
                   onChange={(e) => setStyleIndex(Number(e.target.value))}
@@ -89,6 +90,12 @@ export default function Fields({
                   ))}
                 </select>
               </label>
+            )}
+            {typeof template[0] === "object" && variants.length > 1 && (
+              <small className="hint">
+                Applies only to the next item you add. Change an existing item's
+                icon using its Icon field above.
+              </small>
             )}
             <button
               type="button"
@@ -116,6 +123,13 @@ export default function Fields({
     return (
       <fieldset>
         <legend>{name}</legend>
+        {typeof template.icon === "string" && (
+          <IconPicker
+            value={value?.iconOverride || ""}
+            original={template.icon}
+            onChange={(next) => onChange({ ...value, iconOverride: next })}
+          />
+        )}
         {Object.entries(template).map(([key, item]) => (
           <Fields
             key={key}

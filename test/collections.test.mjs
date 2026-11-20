@@ -50,3 +50,18 @@ test("style choices distinguish icon structures rather than existing copy", asyn
     2,
   );
 });
+
+test("an icon override does not change the item template identity", () => {
+  const templates = [
+    { icon: "legacy", text: "A" },
+    { icon: "coverage", text: "B" },
+  ];
+  assert.equal(
+    itemTemplate(templates, {
+      icon: "coverage",
+      iconOverride: "icon:truck",
+      text: "Changed",
+    }),
+    templates[1],
+  );
+});
