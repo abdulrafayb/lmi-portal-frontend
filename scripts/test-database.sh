@@ -163,3 +163,8 @@ do $$ begin
 end $$;
 SQL
 printf '%s\n' 'Services At a Glance is retired without deleting content/history; reruns are safe.'
+
+for file in supabase/tests/service-category-headers.sql supabase/migrations/202611200002_service_category_headers.sql supabase/migrations/202611200002_service_category_headers.sql supabase/tests/verify-service-category-headers.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Service card category headers preserve edited copy, custom labels, cleared slots and visibility; reruns are safe.'

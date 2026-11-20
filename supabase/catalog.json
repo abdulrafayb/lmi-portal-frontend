@@ -3456,27 +3456,32 @@
           {
             "heading": "For packaged or industrial goods",
             "label": "Dry Cargo",
-            "path": "/services/dry-cargo-transportation"
+            "path": "/services/dry-cargo-transportation",
+            "category": "Packaged & Industrial Goods"
           },
           {
             "heading": "For petroleum and fuel",
             "label": "Petroleum Transportation",
-            "path": "/services/petroleum-transportation"
+            "path": "/services/petroleum-transportation",
+            "category": "Petroleum & Fuel"
           },
           {
             "heading": "For chemicals, fertilizer or liquids",
             "label": "Chemical & Liquid Cargo",
-            "path": "/services/chemical-liquid-cargo-transportation"
+            "path": "/services/chemical-liquid-cargo-transportation",
+            "category": "Chemicals & Liquids"
           },
           {
             "heading": "For containers from the port",
             "label": "Containerized",
-            "path": "/services/containerized-transportation"
+            "path": "/services/containerized-transportation",
+            "category": "Containers & Port Cargo"
           },
           {
             "heading": "For a full load for one customer",
             "label": "Full Truckload",
-            "path": "/services/full-truckload-ftl"
+            "path": "/services/full-truckload-ftl",
+            "category": "Full Loads"
           },
           {
             "heading": "For machinery, steel or oversized loads",
@@ -3489,7 +3494,8 @@
                 "label": "Heavy & Project Cargo",
                 "path": "/services/heavy-project-cargo"
               }
-            ]
+            ],
+            "category": "Machinery & Oversized Loads"
           }
         ]
       },
