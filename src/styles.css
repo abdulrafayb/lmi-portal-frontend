@@ -542,3 +542,35 @@ fieldset {
   padding: 2px 7px;
   border: 0;
 }
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+.palette-field {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+}
+.palette-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.palette-input input[type="color"] {
+  width: 50px;
+  height: 44px;
+  padding: 3px;
+  flex: none;
+}
+.palette-input input[type="text"],
+.palette-input input:not([type]) {
+  min-width: 0;
+}
+.palette-field label {
+  display: block;
+  margin-bottom: 10px;
+}

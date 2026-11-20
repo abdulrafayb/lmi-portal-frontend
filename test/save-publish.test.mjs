@@ -12,7 +12,7 @@ const createApi = new Function(
   "createClient",
   "env",
   "window",
-  source + "\nreturn {saveSection,savePost,requestWebsiteBuild};",
+  source + "\nreturn {saveSection,savePost,saveColors,requestWebsiteBuild};",
 );
 test("saving multiple sections and posts never requests a pipeline; explicit Publish requests one", async () => {
   const calls = [];
@@ -47,15 +47,16 @@ test("saving multiple sections and posts never requests a pipeline; explicit Pub
   );
   await api.saveSection("home", "sectionTwo", { heading: "Second" }, true, 3);
   await api.savePost({ status: "published", title: "Test" }, "post-id", 4);
+  await api.saveColors({ "brand-red": "#123456" }, 0);
   assert.equal(builds, 0);
-  assert.equal(calls.length, 3);
+  assert.equal(calls.length, 4);
   assert.equal(calls[0].params.p_expected_revision, 2);
   assert.equal(calls[2].name, "cms_save_post");
   await api.requestWebsiteBuild();
   assert.equal(builds, 1);
-  assert.equal(calls.length, 3);
+  assert.equal(calls.length, 4);
   fail = true;
   await assert.rejects(api.requestWebsiteBuild(), /Content is saved/);
-  assert.equal(calls.length, 3);
+  assert.equal(calls.length, 4);
   assert.equal(builds, 2);
 });

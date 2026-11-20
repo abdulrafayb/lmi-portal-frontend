@@ -1,3 +1,4 @@
+import Colors from "./Colors";
 import Publications from "./PostEditor";
 import { StrictMode, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
@@ -247,6 +248,7 @@ function History({ pages }) {
         }}
       >
         <option value="">All pages</option>
+        <option value="site">Website colors</option>
         {pages.map((p) => (
           <option key={p.id} value={p.id}>
             {p.title}
@@ -263,8 +265,10 @@ function History({ pages }) {
             <article className="history-card" key={event._id}>
               <div className="history-heading">
                 <h2>
-                  {pages.find((p) => p.id === event.pageId)?.title ??
-                    event.pageId}{" "}
+                  {event.pageId === "site"
+                    ? "Website"
+                    : (pages.find((p) => p.id === event.pageId)?.title ??
+                      event.pageId)}{" "}
                   · {label(event.section)}
                 </h2>
                 <span className="badge">Revision {event.revision}</span>
@@ -423,6 +427,17 @@ function Dashboard() {
             Publications
           </button>
           <button
+            className={view === "colors" ? "nav-button active" : "nav-button"}
+            onClick={() => {
+              if (leave()) {
+                setView("colors");
+                setDirty(false);
+              }
+            }}
+          >
+            Colors
+          </button>
+          <button
             className={view === "history" ? "nav-button active" : "nav-button"}
             onClick={() => {
               if (leave()) {
@@ -473,6 +488,8 @@ function Dashboard() {
         <Message error={me.error ?? pages.error} />
         {me.isError || pages.isError ? null : pages.isPending ? (
           <Loading />
+        ) : view === "colors" ? (
+          <Colors onDirty={setDirty} />
         ) : view === "posts" ? (
           <Publications onDirty={setDirty} />
         ) : view === "history" ? (

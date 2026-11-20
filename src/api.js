@@ -118,3 +118,7 @@ export async function getPostHistory(id) {
   if (error) throw new Error(error.message);
   return data;
 }
+
+export const getColors = () => rpc("cms_admin_colors");
+export const saveColors = (colors, revision) =>
+  rpc("cms_save_colors", { p_colors: colors, p_expected_revision: revision });

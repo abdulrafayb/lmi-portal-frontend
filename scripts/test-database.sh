@@ -168,3 +168,8 @@ for file in supabase/tests/service-category-headers.sql supabase/migrations/2026
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Service card category headers preserve edited copy, custom labels, cleared slots and visibility; reruns are safe.'
+
+for file in supabase/migrations/202611200003_website_colors.sql supabase/migrations/202611200003_website_colors.sql supabase/tests/colors.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Website colors enforce admin access, hex validation, optimistic revisions and audited save-only changes.'

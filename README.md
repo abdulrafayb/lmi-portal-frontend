@@ -190,3 +190,9 @@ Publication tags: run `supabase/migrations/202611180012_publication_tags.sql`, t
 Services overview At a Glance is retired. Run `supabase/migrations/202611200001_retire_services_load_overview.sql` to hide sectionFive from the CMS and public page API while retaining its stored content/history. The website ignores legacy responses during rollout. Reruns are safe.
 
 Services overview category headers: run `supabase/migrations/202611200002_service_category_headers.sql`, then rebuild the website. It adds editable Category text to each sectionThree service card for the red header design, preserving custom copy, links, visibility and cleared cards. Fresh installs receive the fields through the seed; reruns are safe.
+
+## Website Colors tab
+
+Run `supabase/migrations/202611200003_website_colors.sql`, deploy the portal, then Publish/rebuild the website. The Colors tab edits the shared website palette: primary/hover colors, accent, cream/white surfaces, headings/body text, footer, borders and advanced tones. Save only writes to Supabase; top Publish runs one website build. Restore default palette changes the editor draft until saved. Saves validate six/eight-digit hex values, reject unknown fields, use revision conflicts and appear under History → Website colors. The migration is safe to rerun and preserves saved palettes.
+
+Website defaults remain in `lmi-website/src/index.css`; `supabase/color-defaults.json` mirrors them for database setup. The website build fetches `cms_public_colors` and generates CSS custom-property overrides imported by index.css. The portal does not write into GitHub or alter the source CSS file. Built CSS applies the saved palette without browser API requests or a flash of default colors. Run the migration before the first website build with this feature. Existing image/logo artwork and embedded third-party content retain their own colors. The portal's own admin styling stays independent of the website palette.
