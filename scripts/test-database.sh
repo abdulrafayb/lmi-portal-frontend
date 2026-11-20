@@ -151,3 +151,15 @@ for file in supabase/migrations/202611180012_publication_tags.sql supabase/migra
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Publication tags validate, deduplicate, save, clear, audit and remain compatible with older clients.'
+
+for ((i=0;i<2;i++)); do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < supabase/migrations/202611200001_retire_services_load_overview.sql >/dev/null
+done
+docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 <<'SQL' >/dev/null
+do $$ begin
+ if public.cms_section_active('services','sectionFive') then raise exception 'Retired section still active';end if;
+ if not exists(select 1 from public.cms_sections where page_id='services' and key='sectionFive' and not enabled and data->>'heading'='Services by Type of Load') then raise exception 'Retired data not preserved';end if;
+ if (select count(*) from public.cms_history where actor='System: Services load overview retired')<>1 then raise exception 'Retirement not idempotent';end if;
+end $$;
+SQL
+printf '%s\n' 'Services At a Glance is retired without deleting content/history; reruns are safe.'
