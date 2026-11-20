@@ -22,6 +22,7 @@ const empty = () => ({
   author: "",
   author_role: "",
   tags: [],
+  category: "",
   content: { type: "doc", content: [{ type: "paragraph" }] },
   seo_title: "",
   seo_description: "",
@@ -38,6 +39,7 @@ const editable = [
   "author",
   "author_role",
   "tags",
+  "category",
   "content",
   "seo_title",
   "seo_description",
@@ -280,8 +282,16 @@ function Editor({ post, onDirty, onSaved }) {
           id={`post-${key}`}
           required={required}
           pattern={key === "slug" ? "[a-z0-9]+(-[a-z0-9]+)*" : undefined}
-          maxLength={key === "slug" ? 120 : key === "title" ? 200 : undefined}
-          value={data[key]}
+          maxLength={
+            key === "slug"
+              ? 120
+              : key === "title"
+                ? 200
+                : key === "category"
+                  ? 80
+                  : undefined
+          }
+          value={data[key] ?? ""}
           onChange={(e) => change(key, e.target.value)}
         />
       ) : (
@@ -289,8 +299,16 @@ function Editor({ post, onDirty, onSaved }) {
           id={`post-${key}`}
           required={required}
           pattern={key === "slug" ? "[a-z0-9]+(-[a-z0-9]+)*" : undefined}
-          maxLength={key === "slug" ? 120 : key === "title" ? 200 : undefined}
-          value={data[key]}
+          maxLength={
+            key === "slug"
+              ? 120
+              : key === "title"
+                ? 200
+                : key === "category"
+                  ? 80
+                  : undefined
+          }
+          value={data[key] ?? ""}
           onChange={(e) => {
             change(key, e.target.value);
             if (
@@ -375,6 +393,11 @@ function Editor({ post, onDirty, onSaved }) {
         {field("image_alt", "Image description")}
         {field("author", "Author")}
         {field("author_role", "Author role")}
+        {field("category", "Category (optional)")}
+        <small className="hint">
+          Use one category to group related posts, such as Road Transportation
+          or HSSE. Tags can describe multiple topics.
+        </small>
         <TagInput value={data.tags || []} onChange={(v) => change("tags", v)} />
         <label htmlFor="post-date">Publication date</label>
         <input

@@ -1,0 +1,20 @@
+begin;
+set local role authenticated;
+select set_config('request.jwt.claims','{"sub":"11111111-1111-1111-1111-111111111111","email":"admin@example.test"}',true);
+do $$ declare p jsonb; saved jsonb; post_identifier uuid;
+begin
+ select to_jsonb(t) into p from public.cms_posts t where kind='article' limit 1;
+ p:=p||'{"slug":"category-test","category":" Road Transportation ","tags":["Safety"]}';
+ saved:=public.cms_save_post(p);post_identifier:=(saved->>'id')::uuid;
+ if saved->>'category'<>'Road Transportation' then raise exception 'Category not trimmed';end if;
+ if not exists(select 1 from jsonb_array_elements(public.cms_public_posts()) x where x->>'id'=post_identifier::text and x->>'category'='Road Transportation') then raise exception 'Public category missing';end if;
+ saved:=public.cms_save_post(p - 'category',post_identifier,1);
+ if saved->>'category'<>'Road Transportation' then raise exception 'Older client wiped category';end if;
+ saved:=public.cms_save_post(p||'{"category":""}',post_identifier,2);
+ if saved->>'category'<>'' or saved->'tags'<>'["Safety"]' then raise exception 'Category clear affected tags';end if;
+ begin perform public.cms_save_post(p||'{"category":123}');raise exception 'Non-text category accepted';exception when sqlstate 'PT400' then null;end;
+ begin perform public.cms_save_post(p||'{"category":null}');raise exception 'Null category accepted';exception when sqlstate 'PT400' then null;end;
+ begin perform public.cms_save_post(p||jsonb_build_object('category',repeat('x',81)));raise exception 'Long category accepted';exception when sqlstate 'PT400' then null;end;
+ if not exists(select 1 from public.cms_post_history where post_id=post_identifier and changes::text like '%category%') then raise exception 'Category not audited';end if;
+end $$;
+rollback;

@@ -173,3 +173,8 @@ for file in supabase/migrations/202611200003_website_colors.sql supabase/migrati
  docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
 done
 printf '%s\n' 'Website colors enforce admin access, hex validation, optimistic revisions and audited save-only changes.'
+
+for file in supabase/migrations/202611200004_publication_categories.sql supabase/migrations/202611200004_publication_categories.sql supabase/tests/publication-categories.sql supabase/tests/publication-tags.sql; do
+ docker exec -i "$cms_test_container" psql -U postgres -v ON_ERROR_STOP=1 < "$file" >/dev/null
+done
+printf '%s\n' 'Publication categories validate, save, clear, audit and preserve tags and older clients.'
